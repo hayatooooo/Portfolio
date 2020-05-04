@@ -69,19 +69,20 @@ class UsersController < ApplicationController
     render 'show_follow'
   end
   
+end
+
+  private
+  
+  def search_params
+      params.require(:q).permit(:name_cont)
+  end
+    
   def user_params
   params.require(:user).permit(:name, :email,
                                :password, :password_confirmation,
                                :follow_notification)
   end
-
-  private
   
-    def user_params
-      params.require(:user).permit(:name, :email, :password,
-                                   :password_confirmation)
-    end
-    
         # beforeアクション
     
         # 正しいユーザーかどうか確認
@@ -94,5 +95,3 @@ class UsersController < ApplicationController
     def admin_user
       redirect_to(root_url) unless current_user.admin?
     end
-    
-end
