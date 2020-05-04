@@ -8,6 +8,12 @@ class User < ApplicationRecord
                                    dependent:   :destroy
   has_many :following, through: :active_relationships,  source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
+  has_many :from_messages, class_name: "Message",
+          foreign_key: "from_id", dependent: :destroy
+  has_many :to_messages, class_name: "Message",
+            foreign_key: "to_id", dependent: :destroy
+  has_many :sent_messages, through: :from_messages, source: :from
+  has_many :received_messages, through: :to_messages, source: :to
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save   :downcase_email
   before_create :create_activation_digest
@@ -84,11 +90,11 @@ class User < ApplicationRecord
     reset_sent_at < 2.hours.ago
   end
   
-  # ユーザーのステータスフィードを返す
   def feed
     following_ids = "SELECT followed_id FROM relationships
                      WHERE follower_id = :user_id"
-    Micropost.where("user_id IN (#{following_ids})
+    Micropost.including_replies(id)
+             .where("user_id IN (#{following_ids})
                      OR user_id = :user_id", user_id: id)
   end
   
@@ -107,19 +113,24 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
   
-def follow(other_user)
-  active_relationships.create(followed_id: other_user.id)
-  if other_user.follow_notification
-    Relationship.send_follow_email(other_user, self)
+  def follow(other_user)
+    active_relationships.create(followed_id: other_user.id)
+    if other_user.follow_notification
+      Relationship.send_follow_email(other_user, self)
+    end
   end
-end
+  
+  def unfollow(other_user)
+    active_relationships.find_by(followed_id: other_user.id).destroy
+    if other_user.follow_notification
+      Relationship.send_unfollow_email(other_user, self)
+    end
+  end
 
-def unfollow(other_user)
-  active_relationships.find_by(followed_id: other_user.id).destroy
-  if other_user.follow_notification
-    Relationship.send_unfollow_email(other_user, self)
+  # Send message to other user
+  def send_message(other_user, room_id, content)
+   from_messages.create!(to_id: other_user.id, room_id: room_id, content: content)
   end
-end
 
   private
 
