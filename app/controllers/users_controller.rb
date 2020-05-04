@@ -5,7 +5,14 @@ class UsersController < ApplicationController
     before_action :admin_user,     only: :destroy
       
   def index
-    @users = User.paginate(page: params[:page])
+    if params[:q] && params[:q].reject { |key, value| value.blank? }.present?
+      @q = User.ransack(search_params, activated_true: true)
+      @title = "Search Result"
+    else
+      @q = User.ransack(activated_true: true)
+      @title = "All users"
+    end
+    @users = @q.result.paginate(page: params[:page])
   end
   
  def show
@@ -62,6 +69,12 @@ class UsersController < ApplicationController
     render 'show_follow'
   end
   
+  def user_params
+  params.require(:user).permit(:name, :email,
+                               :password, :password_confirmation,
+                               :follow_notification)
+  end
+
   private
   
     def user_params
