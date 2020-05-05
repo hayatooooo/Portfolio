@@ -10,24 +10,12 @@
     <section class="stats">
       <%= render 'shared/stats' %>
     </section>
-      <% if !current_user?(@user) && logged_in? %>
-    <section class="message_box">
-      <div id="messages">
-        <%= render @messages %>
-      </div>
+     <section class="talk" >
+      <%= form_for Talk.new do |f| %>
+        <%= hidden_field_tag :member_id, @user.id %>
+        <%= f.submit "Message", class: "btn btn-primary" %>
+      <% end %>
     </section>
-    <script type="text/javascript">
-      var height = 0;
-      $("div.message").each( function() {
-        height += ($(this).height());
-      });
-      $('section.message_box').scrollTop(height);
-    </script>
-    <div class="message_form">
-     <%= render 'messages/message_form',
-       {from_user: current_user, to_user: @user, room_id: @room_id} %>
-    </div>
-  <% end %>
   </aside>
   <div class="col-md-8">
     <%= render 'follow_form' if logged_in? %>

@@ -1,0 +1,30 @@
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <%= render 'shared/user_info' %>
+    </section>
+    <section class="stats">
+      <%= render 'shared/stats' %>
+    </section>
+    <section class="micropost_form">
+      <%= render 'shared/micropost_form' %>
+    </section>
+  </aside>
+  <div class="col-md-8">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#feed-tab" data-toggle="tab">Micropost Feed</a></li>
+      <li><a href="#talks-tab" data-toggle="tab">Messages</a></li>
+      <div class="search_form">
+        <%= render 'shared/microposts_search_form' %>
+      </div>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane active" id="feed-tab">
+        <%= render 'shared/feed' %>
+      </div>
+      <div class="tab-pane" id="talks-tab">
+        <%= render 'shared/talks' %>
+      </div>
+    </div>
+  </div>
+</div>

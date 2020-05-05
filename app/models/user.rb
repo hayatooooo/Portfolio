@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  
   has_many :microposts, dependent: :destroy
   has_many :active_relationships, class_name:  "Relationship",
                                   foreign_key: "follower_id",
@@ -8,13 +9,13 @@ class User < ApplicationRecord
                                    dependent:   :destroy
   has_many :following, through: :active_relationships,  source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
-  has_many :from_messages, class_name: "Message",
-          foreign_key: "from_id", dependent: :destroy
-  has_many :to_messages, class_name: "Message",
-            foreign_key: "to_id", dependent: :destroy
-  has_many :sent_messages, through: :from_messages, source: :from
-  has_many :received_messages, through: :to_messages, source: :to
+  
+  has_many    :memberships, dependent: :destroy
+  has_many    :talks, class_name: "Talk", through: :memberships
+  has_many    :dmessages, dependent: :destroy
+  
   attr_accessor :remember_token, :activation_token, :reset_token
+  
   before_save   :downcase_email
   before_create :create_activation_digest
   
@@ -127,17 +128,13 @@ class User < ApplicationRecord
     end
   end
 
-  # Send message to other user
-  def send_message(other_user, room_id, content)
-   from_messages.create!(to_id: other_user.id, room_id: room_id, content: content)
-  end
-
   private
 
     # メールアドレスをすべて小文字にする
     def downcase_email
       self.email = email.downcase
     end
+    
 
     # 有効化トークンとダイジェストを作成および代入する
     def create_activation_digest
