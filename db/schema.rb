@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200505000123) do
+ActiveRecord::Schema.define(version: 20200505063825) do
 
   create_table "dmessages", force: :cascade do |t|
     t.integer "talk_id"
@@ -21,6 +21,16 @@ ActiveRecord::Schema.define(version: 20200505000123) do
     t.index ["talk_id"], name: "index_dmessages_on_talk_id"
     t.index ["updated_at", "talk_id"], name: "index_dmessages_on_updated_at_and_talk_id"
     t.index ["user_id"], name: "index_dmessages_on_user_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "micropost_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["micropost_id"], name: "index_likes_on_micropost_id"
+    t.index ["user_id", "micropost_id"], name: "index_likes_on_user_id_and_micropost_id", unique: true
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "memberships", force: :cascade do |t|
@@ -50,6 +60,7 @@ ActiveRecord::Schema.define(version: 20200505000123) do
     t.datetime "updated_at", null: false
     t.string "picture"
     t.integer "in_reply_to", default: 0
+    t.integer "likes_count", default: 0, null: false
     t.index ["user_id"], name: "index_microposts_on_user_id"
   end
 

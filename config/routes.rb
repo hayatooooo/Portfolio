@@ -25,4 +25,5 @@ Rails.application.routes.draw do
   end
   resources :memberships,          only: :destroy
   resources :dmessages,            only: :destroy
+  resources :likes, only: [:create, :destroy]
 end
