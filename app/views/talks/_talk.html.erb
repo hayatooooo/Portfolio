@@ -5,7 +5,7 @@
   <%= link_to 'leave', membership_path(membership),
                                     class: "delete",
                                     method: :delete,
-                                    data: { confirm: "You sure?" } %>
+                                    data: { confirm: "トークルームを削除します。よろしいですか？" } %>
   <%= link_to(talk) do %>
     <span class="title" id=dmessagetitle><%= talk.title(current_user, 50) %></span>
     <span class="content"><%= dmessage.content unless dmessage.nil? %></span>
