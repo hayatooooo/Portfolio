@@ -32,15 +32,15 @@ class Micropost < ApplicationRecord
   end
   
   def reply_to_user
-    return if self.in_reply_to == 0 # 1
-    unless user = User.find_by(id: self.in_reply_to) # 2
-      errors.add(:base, "User ID you specified doesn't exist.")
+    return if self.in_reply_to == 0
+    unless user = User.find_by(id: self.in_reply_to)
+      errors.add(:base, "指定したユーザーIDは存在しません。")
     else
-      if user_id == self.in_reply_to # 3
-        errors.add(:base, "You can't reply to yourself.")
+      if user_id == self.in_reply_to
+        errors.add(:base, "自分には返信できません。")
       else
-        unless reply_to_user_name_correct?(user) # 4
-          errors.add(:base, "User ID doesn't match its name.")
+        unless reply_to_user_name_correct?(user)
+          errors.add(:base, "ユーザーIDが名前と一致しません。")
         end
       end
     end
@@ -71,7 +71,7 @@ class Micropost < ApplicationRecord
     # アップロードされた画像のサイズをバリデーションする
     def picture_size
       if picture.size > 5.megabytes
-        errors.add(:picture, "should be less than 5MB")
+        errors.add(:picture, "画像サイズは５MB未満にしてください。")
       end
     end
     

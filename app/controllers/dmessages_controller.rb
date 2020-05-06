@@ -5,7 +5,7 @@ class DmessagesController < ApplicationController
   def destroy
     @talk = @dmessage.talk
     @dmessage.destroy
-    flash[:success] = "Message deleted"
+    flash[:success] = "メッセージを削除しました。"
     redirect_to @talk
   end
   

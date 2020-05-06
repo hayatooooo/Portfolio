@@ -1,0 +1,6 @@
+ja:
+  shared:
+    #フォルダ名の頭の「_」は取る
+    error_messages:
+
+      errors count: '入力フォームに%{errors_count}個のエラーがあります。'

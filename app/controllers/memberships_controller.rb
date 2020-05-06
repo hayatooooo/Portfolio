@@ -16,7 +16,7 @@ class MembershipsController < ApplicationController
 
   def destroy
     @membership.destroy
-    flash[:success] = "Left the talk"
+    flash[:success] = "トークルームを削除しました。"
     redirect_back(fallback_location: root_url)
   end
   
