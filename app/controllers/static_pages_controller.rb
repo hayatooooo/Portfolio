@@ -16,6 +16,13 @@ class StaticPagesController < ApplicationController
     end
   end
 
+  def dmhome
+    if logged_in?
+        @talks = current_user.talks.paginate(page: params[:talks_page])
+    end
+      @url = root_path
+  end
+
   def help
   end
   

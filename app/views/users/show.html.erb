@@ -13,11 +13,12 @@
      <section class="talk" >
       <%= form_for Talk.new do |f| %>
         <%= hidden_field_tag :member_id, @user.id %>
-        <%= f.submit "Message", class: "btn btn-primary" %>
+        <%= f.submit "Direct Message", class: "btn btn-primary" %>
       <% end %>
     </section>
   </aside>
   <div class="col-md-8">
+          <h1>My Account</h1>
     <%= render 'follow_form' if logged_in? %>
     <% if @user.microposts.any? %>
       <h3>Microposts (<%= @user.microposts.count %>)</h3>

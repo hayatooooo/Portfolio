@@ -12,19 +12,11 @@
   </aside>
   <div class="col-md-8">
     <ul class="nav nav-tabs">
-      <li class="active"><a href="#feed-tab" data-toggle="tab">Micropost Feed</a></li>
-      <li><a href="#talks-tab" data-toggle="tab">Messages</a></li>
+      <h1>Tweet</h1>
       <div class="search_form">
         <%= render 'shared/microposts_search_form' %>
       </div>
     </ul>
-    <div class="tab-content">
-      <div class="tab-pane active" id="feed-tab">
         <%= render 'shared/feed' %>
-      </div>
-      <div class="tab-pane" id="talks-tab">
-        <%= render 'shared/talks' %>
-      </div>
-    </div>
   </div>
 </div>
