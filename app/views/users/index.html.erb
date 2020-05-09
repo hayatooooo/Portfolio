@@ -1,6 +1,6 @@
 <% provide(:title, @title) %>
-<h1><%= @title %></h1>
-
+<body class="main">
+<h1 class="subtitle"><%= @title %></h1>
 <div class="row">
   <div class="search_form">
     <%= render 'users/search_form' %>
@@ -10,7 +10,7 @@
 <%= will_paginate %>
 
 <% unless @users.empty? %>
-  <ul class="users">
+  <ul class="users ulbackcolor">
     <%= render @users %>
   </ul>
 <% else %>
@@ -19,15 +19,4 @@
 <% end %>
 
 <%= will_paginate %>
-
-  <%= javascript_include_tag 'bubbly.js' %>
-<script>bubbly({
-  blur:200,
-  colorStart: '#BAD3FF',
-  colorStop: '#D9E5FF',
-  radiusFunc:() => 5 + Math.random() * 75,
-  angleFunc:() => -Math.PI / 2,
-  velocityFunc:() => Math.random() * 2,
-  bubbleFunc:() => `hsla(${200 + Math.random() * 50}, 100%, 65%, .1)`,
-  bubbles:150
-});</script>
+</body>

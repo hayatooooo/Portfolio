@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       @title = "Search Result"
     else
       @q = User.ransack(activated_true: true)
-      @title = "All users"
+      @title = "All supporters"
     end
     @users = @q.result.paginate(page: params[:page])
   end

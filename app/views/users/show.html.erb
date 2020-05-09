@@ -1,8 +1,9 @@
 <% provide(:title, @user.name) %>
+<body class="main">
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
-      <h1>
+      <h1 class="color">
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
@@ -18,25 +19,15 @@
     </section>
   </aside>
   <div class="col-md-8">
-          <h1>Account</h1>
+          <h1 class="subtitle">Account</h1>
     <%= render 'follow_form' if logged_in? %>
     <% if @user.microposts.any? %>
-      <h3>Tweet (<%= @user.microposts.count %>)</h3>
-      <ol class="microposts">
+      <h3 class="color">Tweet (<%= @user.microposts.count %>)</h3>
+      <ol class="microposts ulbackcolor">
         <%= render @microposts %>
       </ol>
       <%= will_paginate @microposts %>
     <% end %>
   </div>
-  <%= javascript_include_tag 'bubbly.js' %>
-<script>bubbly({
-  blur:200,
-  colorStart: '#BAD3FF',
-  colorStop: '#D9E5FF',
-  radiusFunc:() => 5 + Math.random() * 75,
-  angleFunc:() => -Math.PI / 2,
-  velocityFunc:() => Math.random() * 2,
-  bubbleFunc:() => `hsla(${200 + Math.random() * 50}, 100%, 65%, .1)`,
-  bubbles:150
-});</script>
 </div>
+</body>

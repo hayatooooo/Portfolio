@@ -1,4 +1,4 @@
-<li id="talk-<%=talk.id%>">
+<li id="talk-<%=talk.id%>" class="ulbackcolor">
   <% dmessage = talk.latest_message %>
   <% membership = talk.memberships.find_by(user: current_user) %>
   <%= gravatar_for(dmessage.nil? ? talk.memberships.first.user : dmessage.user, size: 50) %>

@@ -1,21 +1,21 @@
 <%= form_for(@user) do |f| %>
   <%= render 'shared/error_messages', object: @user %>
 
-  <%= f.label :name %>
+  <%= f.label :name,class: 'color' %>
   <%= f.text_field :name, class: 'form-control' %>
 
-  <%= f.label :email %>
+  <%= f.label :email,class: 'color' %>
   <%= f.email_field :email, class: 'form-control' %>
 
-  <%= f.label :password %>
+  <%= f.label :password,class: 'color' %>
   <%= f.password_field :password, class: 'form-control' %>
 
-  <%= f.label :password_confirmation %>
+  <%= f.label :password_confirmation,class: 'color'%>
   <%= f.password_field :password_confirmation, class: 'form-control' %>
 
   <%= f.label :follow_notification, class:"checkbox inline" do %>
     <%= f.check_box :follow_notification %>
-    <span>フォロー通知、フォロー解除通知を受け取りますか？</span>
+    <span class="color">フォロー通知、フォロー解除通知を受け取りますか？</span>
   <% end %>
 
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
