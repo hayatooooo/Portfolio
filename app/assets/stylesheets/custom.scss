@@ -9,6 +9,31 @@ $gray-medium-light: #eaeaea;
 
 body {
   padding-top: 60px;
+    /* 画像を常に天地左右の中央に配置 */
+  background-position: center center;
+  /* 画像をタイル状に繰り返し表示しない */
+  background-repeat: no-repeat;
+  /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
+  background-attachment: fixed;
+  /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
+  background-size: cover;
+  /* 背景画像が読み込まれる前に表示される背景のカラー */
+  background-color: white;
+}
+
+body.main {
+  padding-top: 60px;
+  background-image: url(/main_back_image.png);
+    /* 画像を常に天地左右の中央に配置 */
+  background-position: center center;
+  /* 画像をタイル状に繰り返し表示しない */
+  background-repeat: no-repeat;
+  /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
+  background-attachment: fixed;
+  /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
+  background-size: cover;
+  /* 背景画像が読み込まれる前に表示される背景のカラー */
+  background-color: #464646;
 }
 
 section {
@@ -427,7 +452,78 @@ span.picture {
     font-weight: bold;
 }
 
-#follow_notification{
-	position:relative;
-	right:250px;
+.example {/*親div*/
+  /* 画像を常に天地左右の中央に配置 */
+  background-position: center center;
+   
+  /* 画像をタイル状に繰り返し表示しない */
+  background-repeat: no-repeat;
+   
+  /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
+  background-attachment: fixed;
+   
+  /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
+  background-size: cover;
+   
+  /* 背景画像が読み込まれる前に表示される背景のカラー */
+  background-color: #464646;
+  }
+  
+.btn-primary {
+    background: rgba(0,0,64,0.5); //ボタンの背景色
+    color: white; //ボタンのテキストの色
+}
+
+.btn-primary:hover, .btn-primary:focus, 
+.btn-primary:active, .btn-primary:active:focus, .btn-primary:active:hover, .btn-primary:active.focus,
+.btn-primary.active, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary.active.focus,
+.open > .dropdown-toggle.btn-primary, 
+.open > .dropdown-toggle.btn-primary:hover,
+.open > .dropdown-toggle.btn-primary:focus, 
+.open > .dropdown-toggle.btn-primary.focus,
+.btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled.focus, .btn-primary[disabled].focus, fieldset[disabled] .btn-primary.focus {
+    background: rgba(0,0,32,0.5); //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
+    color: #FFD700; //ボタンの上にポインタを持ってきたり、クリックしたりした時のテキストの色
+}
+
+.btn-primary.outline {
+    border: 3px solid rgba(0,0,64,0.5); //アウトラインのみのボタンの線の色
+    color: white; //アウトラインのみのボタンのテキストの色
+}
+
+.navbar{
+    color:#fff;
+}
+
+.top{
+  color: rgba(255,255,255,0.7);
+  font-weight: bold;
+  font-size: 100px;
+}
+
+.subtitle{
+  color: rgba(255,255,255,0.9);
+  font-weight: bold;
+  font-size: 50px;
+}
+
+.sentence{
+  color: rgba(255,255,255,0.9);
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.ligu_logo{
+  width: 25%;
+  height: auto; 
+}
+
+
+ul.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
 }

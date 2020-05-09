@@ -17,4 +17,15 @@
       <%= f.submit "Send", class: "btn btn-primary" %>
     <% end %>
   </div>
+    <%= javascript_include_tag 'bubbly.js' %>
+<script>bubbly({
+  blur:200,
+  colorStart: '#BAD3FF',
+  colorStop: '#D9E5FF',
+  radiusFunc:() => 5 + Math.random() * 75,
+  angleFunc:() => -Math.PI / 2,
+  velocityFunc:() => Math.random() * 2,
+  bubbleFunc:() => `hsla(${200 + Math.random() * 50}, 100%, 65%, .1)`,
+  bubbles:150
+});</script>
 </div>

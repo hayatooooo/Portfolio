@@ -1,8 +1,8 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+<header class="navbar navbar-fixed-top navbar-inverse" style="background: rgba(0,0,64,0.1);">
   <div class="container">
-    <%= link_to "sample app", root_path, id: "logo" %>
+    <%= link_to "WSC", root_path, id: "logo" %>
     <nav>
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right"　style="background-color:#000066;">
         <% if logged_in? %>        
           <li><%= link_to "Direct Message", dmhome_path %></li>
           <li><%= link_to "Tweet", root_path %></li>

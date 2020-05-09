@@ -1,4 +1,4 @@
-<div class="row">
+  <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
       <%= render 'shared/user_info' %>
@@ -19,4 +19,14 @@
     </ul>
         <%= render 'shared/feed' %>
   </div>
+  <script>bubbly({
+  blur:200,
+  colorStart: '#BAD3FF',
+  colorStop: '#D9E5FF',
+  radiusFunc:() => 5 + Math.random() * 75,
+  angleFunc:() => -Math.PI / 2,
+  velocityFunc:() => Math.random() * 2,
+  bubbleFunc:() => `hsla(${200 + Math.random() * 50}, 100%, 65%, .1)`,
+  bubbles:150
+});</script>
 </div>
