@@ -1,32 +1,41 @@
+<div class="swiper-button-prev"></div>
+<div class="swiper-button-next"></div>
 <body class="main">
-<div class="center">
-    </br>
-    </br>
-    </br>
-    </br>
-    <h1 class="top">World </br>
-        Soccer </br>
-        Communitie</h1>	
-<%= link_to "Create my account!", signup_path, class: "btn btn-lg btn-primary btntextsize" %>
-    </br>
-    </br>
-    <div class="popups-cont">
-  <div class="popups-cont__overlay"></div>
-  <div class="popup">
-    <div class="popup__pieces"></div>
-    <div class="popup__content">
-      <div class="popup__close"></div>
-      <h3 class="popup__heading">About</h3>
-      <p class="popup__text">サッカー専門のチャットサイトです。</br></br>
-      　サッカーを愛してやまないサポーターの諸君。</br></br>
-         雑音を気にせず世界中の気の合う仲間と</br></br>
-         語り合いませんか？</br></br>
-         試合をリアルタイムで語るもよし!!</br></br>
-         お気に入りのチームについて語るもよし!!</p></br>
-    </div>
+  <h1 class="top">World </br>
+      Soccer </br>
+      Communitie</h1>	
+  </br></br></br></br>
+  <div class="center swiper-container">
+   <div class="swiper-wrapper">
+      <!-- Slides -->
+      <div class="swiper-slide"></div>
+      <div class="swiper-slide"><img src="/riva2.png"></div>
+      <div class="swiper-slide"><img src="/bru2.png"></div>
+      <div class="swiper-slide"><img src="/dru2.png"></div>
   </div>
-</div>
- <%= javascript_include_tag('bubbly.js') %>
-<button type="button" class="popup-btn">About</button>
-</div>
-  </body>
+  <%= javascript_include_tag('swiper.min.js') %>
+  </div>
+    <div class="center">
+      </br></br>
+      <%= link_to "Create my account!", signup_path, class: "btn btn-lg btn-primary btntextsize" %>
+      </br></br>
+      <div class="popups-cont">
+        <div class="popups-cont__overlay"></div>
+        <div class="popup">
+        <div class="popup__pieces"></div>
+        <div class="popup__content">
+        <div class="popup__close"></div>
+        <h3 class="popup__heading">About</h3>
+        <p class="popup__text">サッカー専門のチャットサイトです。</br></br>
+        　サッカーを愛してやまないサポーターの諸君。</br></br>
+          雑音を気にせず世界中の気の合う仲間と</br></br>
+          語り合いませんか？</br></br>
+          試合をリアルタイムで語るもよし!!</br></br>
+          お気に入りのチームについて語るもよし!!</p></br>
+        </div>
+      </div>
+    </div>
+    <%= javascript_include_tag('bubbly.js') %>
+    <button type="button" class="popup-btn">About</button>
+  </div>
+</body>

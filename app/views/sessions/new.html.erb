@@ -1,7 +1,6 @@
 <% provide(:title, "Log in") %>
 <body class="main">
-  <h1 class="subtitle">Log in</h1>
-
+<h1 class="subtitle">Log in</h1>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(:session, url: login_path) do |f| %>
@@ -23,6 +22,21 @@
     </br>
     <p class = "color">まだアカウント登録していない方へ</br>
     <%= link_to "Creste my account!", signup_path ,class:"linkcolor"%></p>
+    <%= javascript_include_tag('rollsraid.js') %>
+    <section>
+    <div class="sraidcontainer">
+      <div class="carousel">
+        <div class="item a"><img src="/player2.jpg"></div>
+        <div class="item b"><img src="/player7.jpg"></div>
+        <div class="item c"><img src="/player3.jpg"></div>
+        <div class="item d"><img src="/player4.jpg"></div>
+        <div class="item e"><img src="/player5.jpg"></div>
+        <div class="item f"><img src="/player6.jpg"></div>
+      </div>
     </div>
-    </div>
-    </body>
+    <div class="next">></div>
+    <div class="prev"><</div>
+    </section>
+  </div>
+</div>
+</body>
