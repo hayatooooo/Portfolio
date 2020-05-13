@@ -1,39 +1,77 @@
- <body class="main">
-    <div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <%= render 'shared/user_info' %>
-    </section>
-    <section class="stats">
-      <%= render 'shared/stats' %>
-    </section>
-    <section class="micropost_form">
-      <%= render 'shared/micropost_form' %>
-    </section>
-      <%= javascript_include_tag('rollsraid.js') %>
-      <section>
-    <div class="sraidcontainer">
-  <div class="carousel">
-    <div class="item a">A</div>
-    <div class="item b">B</div>
-    <div class="item c">C</div>
-    <div class="item d">D</div>
-    <div class="item e">E</div>
-    <div class="item f">F</div>
-  </div>
-</div>
-<div class="next">Next</div>
-<div class="prev">Prev</div>
-</section>
-  </aside>
-  <div class="col-md-8">
-    <ul class="nav nav-tabs">
-      <h1 class="subtitle">Tweet</h1>
-      <div class="search_form">
-        <%= render 'shared/microposts_search_form' %>
+<body class="main">
+   <div class="row">
+      <aside class="col-md-4">
+      </br>
+         <section class="user_info">
+         <%= render 'shared/user_info' %>
+         </section>
+         <section class="stats">
+         <%= render 'shared/stats' %>
+         </section>
+         <section class="micropost_form">
+         <%= render 'shared/micropost_form' %>
+         </section>
+       <div class="options">
+          <div class="option active" style="--optionBackground:url(/sar.png);">
+            <div class="shadow"></div>
+            <div class="label">
+               <div class="icon">
+                  <i class="fas fa-walking fa_text">1</i>
+               </div>
+               <div class="info">
+                  <div class="main">Mohamed Salah</div>
+                  <div class="sub">Liverpool</div>
+               </div>
+            </div>
+         </div>
+         <div class="option" style="--optionBackground:url(/haz.png);">
+            <div class="shadow"></div>
+            <div class="label">
+               <div class="icon">
+                  <i class="fas fa-snowflake fa_text">2</i>
+               </div>
+               <div class="info">
+                  <div class="main">Eden Hazard</div>
+                  <div class="sub">Chelsea</div>
+               </div>
+            </div>
+         </div>
+         <div class="option" style="--optionBackground:url(/blu.png);">
+            <div class="shadow"></div>
+            <div class="label">
+               <div class="icon">
+                  <i class="fas fa-tree fa_text">3</i>
+               </div>
+               <div class="info">
+                  <div class="main">Bruno Fernandes</div>
+                  <div class="sub">Manchester United</div>
+               </div>
+            </div>
+         </div>
+         <div class="option" style="--optionBackground:url(/son.png);">
+            <div class="shadow"></div>
+            <div class="label">
+               <div class="icon">
+                  <i class="fas fa-tint fa_text">4</i>
+               </div>
+               <div class="info">
+                  <div class="main">Son Heung Min</div>
+                  <div class="sub">Tottenham Hotspur</div>
+               </div>
+            </div>
+         </div>
       </div>
-    </ul>
-        <%= render 'shared/feed' %>
-  </div>
-</div>
+      <p class="momtitle">プレミアリーグ月間優秀選手賞</p>
+      <%= javascript_include_tag('poly.js') %>
+      </aside>
+   <div class="col-md-8">
+     <ul class="nav nav-tabs">
+       <h1 class="subtitle">Tweet</h1>
+       <div class="search_form">
+         <%= render 'shared/microposts_search_form' %>
+       </div>
+     </ul>
+         <%= render 'shared/feed' %>
+   </div>
+ </div>
 </body>

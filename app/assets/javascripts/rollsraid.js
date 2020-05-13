@@ -2,8 +2,8 @@ document.addEventListener("turbolinks:load", function() {
 var carousel = $(".carousel"),
     currdeg  = 0;
 
-$(".next").on("click", { d: "n" }, rotate);
-$(".prev").on("click", { d: "p" }, rotate);
+$(".snext").on("click", { d: "n" }, rotate);
+$(".sprev").on("click", { d: "p" }, rotate);
 
 function rotate(e){
   if(e.data.d=="n"){

@@ -25,6 +25,8 @@ body.main {
   background-attachment: fixed;
   background-size: cover;
   background-color: #464646;
+  overflow: scroll; /* ここのscrollが効かない */
+  height: 100vh; /* これを追加 */
 }
 
 section {
@@ -554,6 +556,10 @@ padding-left: 20px;
   border-bottom-left-radius: 4px;
 }
 
+.lierror{
+  margin-left:30px;
+}
+
 .unfollowbtn{
   color:white;
   background: rgba(0,0,64,0.5);
@@ -565,7 +571,20 @@ padding-left: 20px;
 }
 
 .likebtn{
-  border: none;
+  background-color: rgba(255,255,255,0);
+  border-style: none;
+  &:hover{
+  background-color: rgba(255,255,255,0);
+  border-style: none;
+  }
+    &:active{
+  background-color: rgba(255,255,255,0);
+  border-style: none;
+  }
+}
+
+ .color-red {
+ color: red;
 }
 
 *, *:before, *:after {
@@ -1462,7 +1481,7 @@ button.swiper-pagination-bullet {
   transform: rotateY(300deg) translateZ(250px);
 }
 
-.next, .prev {
+.snext, .sprev {
   color: rgba(0,0,64,0.5);
   position: absolute;
   top: 510px;
@@ -1474,16 +1493,249 @@ button.swiper-pagination-bullet {
   box-shadow: 0 5px 0 rgba(0,0,64,0.9);
   transition: box-shadow 0.1s, top 0.1s;
 }
-.next:hover, .prev:hover { color: #FFD700; }
-.next:active, .prev:active {
+.snext:hover, .sprev:hover { color: #FFD700; }
+.snext:active, .sprev:active {
   top: 514px;
   box-shadow: 0 1px 0 rgba(0,0,64,0.9);
 }
-.next { right: 5em;
+.snext { right: 5em;
   color: white;
   font-weight: bolder;
 }
-.prev { left: 5em;
+.sprev { left: 5em;
   color: white;
   font-weight: bolder;
+}
+
+$optionDefaultColours: #ED5565,#FC6E51,#FFCE54,#2ECC71,#5D9CEC,#AC92EC;
+
+ .options {
+      display:flex;
+      flex-direction:row;
+      align-items:stretch;
+      overflow:hidden;
+
+      min-width:360px;
+      max-width:300px;
+      width:calc(100% - 100px);
+      
+      height:300px;
+      
+      @for $i from 1 through 4 {
+         @media screen and (max-width:798px - $i*80) {
+            min-width:300px - $i*80;
+            .option:nth-child(#{6-$i}) {
+               display:none;
+            }
+         }
+      }
+      
+      .option {
+         position: relative;
+         overflow:hidden;
+
+         min-width:30px;
+         margin:2px;
+         //border:0px solid --defaultColor;
+
+         background:var(--optionBackground, var(--defaultBackground, #E6E9ED));
+         background-size:auto 120%;
+         background-position:center;
+
+         cursor: pointer;
+
+         transition:.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+
+         @for $i from 1 through length($optionDefaultColours) {
+            &:nth-child(#{$i}) {
+               --defaultBackground:#{nth($optionDefaultColours, $i)};
+            }
+         }
+         &.active {
+            flex-grow:10000;
+            transform:scale(1);
+            
+            max-width:500px;
+            margin:0px;
+            border-radius:4px;
+            
+            background-size:auto 100%;
+            .shadow {
+               box-shadow:inset 0 -120px 120px -120px black, inset 0 -120px 120px -100px black;
+            }
+            .label {
+               bottom:7px;
+               left:3px;
+               .info >div {
+                  left:0px;
+                  opacity:1;
+               }
+            }
+            /*&:active {
+               transform:scale(0.9);
+            }*/
+         }
+         &:not(.active) {
+            flex-grow:1;
+            
+            border-radius:4px;
+            .shadow {
+               bottom:-40px;
+               box-shadow:inset 0 -120px 0px -120px black, inset 0 -120px 0px -100px black;
+            }
+            .label {
+               bottom:5px;
+               left:-10px;
+               .info >div {
+                  left:20px;
+                  opacity:0;
+               }
+            }
+         }
+         .shadow {
+            position: absolute;
+            bottom:0px;
+            left:0px;
+            right:0px;
+            
+            height:50px;
+            
+            transition:.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+         }
+         .label {
+            display:flex;
+            position: absolute;
+            right:0px;
+
+            height:40px;
+            transition:.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+            .icon {
+               display:flex;
+               flex-direction:row;
+               justify-content:center;
+               align-items:center;
+               
+               min-width:40px;
+               max-width:40px;
+               height:40px;
+               border-radius:100%;
+
+               background-color:white;
+               color:var(--defaultBackground);
+            }
+            .info {
+               display:flex;
+               flex-direction:column;
+               justify-content:center;
+               
+               margin-left:10px;
+               
+               color:white;
+               
+               white-space: pre;
+               >div {
+                  position: relative;
+                  
+                  transition:.5s cubic-bezier(0.05, 0.61, 0.41, 0.95), opacity .5s ease-out;
+               }
+               .main {
+                  font-weight:bold;
+                  font-size:1.2rem;
+               }
+               .sub {
+                  transition-delay:.1s;
+               }
+            }
+         }
+      }
+ } 
+.fa_text{
+  font-size:30px;
+  color:black;
+}
+.momtitle{
+  font-size:20px;
+  color:white;
+}
+.ml15 {
+  font-weight: 1000;
+  font-size: 1.8em;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+}
+
+.ml15 .word {
+  margin-top:35px;
+  display: inline-block;
+  line-height: 0.2em;
+  color:#FFD700;
+}
+
+.animeleft{
+   text-align: left;
+}
+
+h1.ml8 {
+  font-weight: 900;
+  font-size: 2.5em;
+  color: #fff;
+  width: 8em;
+  height: 6em;
+}
+
+.ml8 .letters-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  height: 2.5em;
+}
+
+.ml8 .letters {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  line-height: 0.7em;
+  right: -0.12em;
+  top: -0.2em;
+}
+
+.ml8 .bang {
+  font-size: 1.4em;
+  top: 0.2em;
+  left: 0em;
+}
+
+.ml8 .circle {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+}
+
+.ml8 .circle-white {
+  width: 6em;
+  height: 6em;
+  border: 2px dashed white;
+  border-radius: 5em;
+}
+
+.ml8 .circle-dark {
+  width: 5em;
+  height: 5em;
+  background-color: #FFD700;
+  border-radius: 4em;
+  z-index: 1;
+}
+
+.ml8 .circle-dark-dashed {
+  border-radius: 2.8em;
+  background-color: transparent;
+  border: 2px dashed #FFD700;
+  width: 5.4em;
+  height: 5.4em;
 }
