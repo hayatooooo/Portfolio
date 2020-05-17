@@ -105,9 +105,11 @@ ActiveRecord::Schema.define(version: 20200516123017) do
     t.string "reset_digest"
     t.datetime "reset_sent_at"
     t.boolean "follow_notification", default: false
+    t.integer "team_id"
+    t.integer "league_id"
+    t.string "biko"
     t.integer "category_id"
     t.integer "sub_category_id"
-    t.string "biko"
     t.index ["category_id", "sub_category_id"], name: "index_users_on_category_id_and_sub_category_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["sub_category_id"], name: "index_users_on_sub_category_id"
