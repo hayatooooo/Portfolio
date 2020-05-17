@@ -23,5 +23,5 @@ $(document).on 'turbolinks:load', ->
       else
         replaceSelectOptions($selectChildren, [])
 
-    $('.select-parent').on
+    $(document).on 'turbolinks:load',$('.select-parent').on
       'change': replaceChildrenOptions
