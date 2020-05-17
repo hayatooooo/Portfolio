@@ -4,8 +4,31 @@
   <aside class="col-md-4">
     <section class="user_info">
       <h1 class="color">
+        <div>
         <%= gravatar_for @user %>
+        <br>
+        <br>
         <%= @user.name %>
+        </div>
+        <br>
+        <div>
+          <h5>・好きなリーグ</h5>
+          <% if Category.find_by(id:@category) != nil %>
+        <%= Category.find_by(id:@category).name %>
+        <% end %>
+        </div>
+        <div>
+          <h5>・好きなチーム</h5>
+          <% if Category.find_by(id:@category) != nil %>
+        <%= SubCategory.find_by(id:@subcategory).name %>
+        <% end %>
+        </div>
+        <div>
+          <h5>・紹介文</h5>
+        <% if @user.biko != "" %>
+        <%= @user.biko %>
+        <% end %>
+        </div>
       </h1>
     </section>
     <section class="stats">

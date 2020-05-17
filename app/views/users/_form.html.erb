@@ -7,6 +7,18 @@
   <%= f.label :email,class: 'color' %>
   <%= f.email_field :email, class: 'form-control' %>
 
+  <%= f.label :category_id,class: 'color' %>
+  <% category_options = Category.order(:id).map { |c| [c.name, c.id, data: { children_path: category_sub_categories_path(c) }] } %>
+  <%= f.select :category_id, category_options, { include_blank: true }, class: 'select-parent form-control' %>
+
+  <%= f.label :sub_category_id,class: 'color' %>
+  <% sub_categories = @user.category.try(:sub_categories) || [] %>
+  <% sub_category_options = sub_categories.map { |c| [c.name, c.id] } %>
+  <%= f.select :sub_category_id, sub_category_options, { include_blank: true }, class: 'select-children form-control' %>
+
+  <%= f.label :biko,class: 'color' %>
+  <%= f.text_area :biko, class: 'form-control' %>
+
   <%= f.label :password,class: 'color' %>
   <%= f.password_field :password, class: 'form-control' %>
 

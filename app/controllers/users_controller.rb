@@ -17,6 +17,8 @@ class UsersController < ApplicationController
   
    def show
       @user = User.find(params[:id])
+      @category = @user.category_id
+      @subcategory = @user.sub_category_id
       @microposts = @user.microposts.paginate(page: params[:page])
    end
   
@@ -78,7 +80,8 @@ class UsersController < ApplicationController
   def user_params
   params.require(:user).permit(:name, :email,
                                :password, :password_confirmation,
-                               :follow_notification)
+                               :follow_notification,
+                               :category_id,:sub_category_id,:biko)
   end
   
         # beforeアクション

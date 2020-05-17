@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200516120810) do
+ActiveRecord::Schema.define(version: 20200516123017) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "dmessages", force: :cascade do |t|
     t.integer "talk_id"
@@ -71,6 +77,14 @@ ActiveRecord::Schema.define(version: 20200516120810) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sub_categories", force: :cascade do |t|
+    t.string "name"
+    t.integer "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_sub_categories_on_category_id"
+  end
+
   create_table "talks", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -91,10 +105,12 @@ ActiveRecord::Schema.define(version: 20200516120810) do
     t.string "reset_digest"
     t.datetime "reset_sent_at"
     t.boolean "follow_notification", default: false
+    t.integer "category_id"
+    t.integer "sub_category_id"
     t.string "biko"
-    t.integer "league_id"
-    t.integer "team_id"
+    t.index ["category_id", "sub_category_id"], name: "index_users_on_category_id_and_sub_category_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["sub_category_id"], name: "index_users_on_sub_category_id"
   end
 
 end

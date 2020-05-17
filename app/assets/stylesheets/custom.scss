@@ -323,6 +323,7 @@ span.picture {
     width: 300px;
     .form-control {
       width: 250px;
+      height:39px;
     }
     .btn {
       width: 50px;
@@ -566,7 +567,9 @@ padding-left: 20px;
   border: 1px solid #008BBB; 
 &:hover {
     color: #FFD700;
+    transition: all 0.3s;
     background: rgba(0,0,64,0.8);
+    letter-spacing: 2px;
   }
 }
 

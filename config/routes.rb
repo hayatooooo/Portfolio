@@ -27,4 +27,8 @@ Rails.application.routes.draw do
   resources :memberships,          only: :destroy
   resources :dmessages,            only: :destroy
   resources :likes, only: [:create, :destroy]
+  
+   resources :categories, only: [] do
+    resources :sub_categories, only: :index
+  end
 end

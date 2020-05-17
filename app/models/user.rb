@@ -16,6 +16,9 @@ class User < ApplicationRecord
   
   has_many :likes, dependent: :destroy
   
+  belongs_to :category, optional: true
+  belongs_to :sub_category, optional: true
+  
   attr_accessor :remember_token, :activation_token, :reset_token
   
   before_save   :downcase_email
@@ -28,6 +31,9 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+  
+  validates :biko,length: { maximum: 200 }
+  
 
   # 渡された文字列のハッシュ値を返す
   def User.digest(string)
