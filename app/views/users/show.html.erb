@@ -19,7 +19,7 @@
         </div>
         <div>
           <h5>・好きなチーム</h5>
-          <% if Category.find_by(id:@subcategory) != nil %>
+          <% if SubCategory.find_by(id:@subcategory) != nil %>
         <%= SubCategory.find_by(id:@subcategory).name %>
         <% end %>
         </div>
