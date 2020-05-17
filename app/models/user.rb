@@ -32,7 +32,7 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   
-  validates :biko,length: { maximum: 200 }
+  validates :introduction,length: { maximum: 200 }
   
 
   # 渡された文字列のハッシュ値を返す

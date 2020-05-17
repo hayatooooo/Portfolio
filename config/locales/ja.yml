@@ -8,7 +8,7 @@ ja:
         email: メールアドレス
         category_id: 好きなリーグ
         sub_category_id: 好きなチーム
-        biko: 紹介文
+        introduction: 紹介文
         password: パスワード
         password_confirmation: 確認用パスワード
       micropost:

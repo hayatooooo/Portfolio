@@ -55,7 +55,7 @@ User.create!(name:  "Example User",
              password_confirmation: "foobar",
              category_id:1,
              sub_category_id:1,
-             biko:"テストユーザーです。",
+             introduction:"サンプルユーザーです。",
              admin:     true,
              activated: true,
              activated_at: Time.zone.now)
@@ -70,7 +70,7 @@ User.create!(name:  "Example User",
               password_confirmation: password,
              category_id:2,
              sub_category_id:1,
-             biko:"テストユーザーです。",
+             introduction:"テストユーザーです。",
               activated: true,
               activated_at: Time.zone.now)
 end

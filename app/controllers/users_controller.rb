@@ -81,7 +81,7 @@ class UsersController < ApplicationController
   params.require(:user).permit(:name, :email,
                                :password, :password_confirmation,
                                :follow_notification,
-                               :category_id,:sub_category_id,:biko)
+                               :category_id,:sub_category_id,:introduction)
   end
   
         # beforeアクション
