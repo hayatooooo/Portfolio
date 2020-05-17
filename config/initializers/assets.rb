@@ -12,10 +12,4 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
-Rails.application.config.assets.precompile += %w( bubbly.js )
-Rails.application.config.assets.precompile += %w( swiper.min.js )
-Rails.application.config.assets.precompile += %w( rollsraid.js )
-Rails.application.config.assets.precompile += %w( poly.js )
-Rails.application.config.assets.precompile += %w( anime.js )
-Rails.application.config.assets.precompile += %w( anime2.js )
-Rails.application.config.assets.precompile += %w( anime3.js )
+Rails.application.config.assets.precompile += %w( *.js *application.css)
