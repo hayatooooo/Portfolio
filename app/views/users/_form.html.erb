@@ -15,7 +15,7 @@
   <% sub_categories = @user.category.try(:sub_categories) || [] %>
   <% sub_category_options = sub_categories.map { |c| [c.name, c.id] } %>
   <%= f.select :sub_category_id, sub_category_options, { include_blank: true }, class: 'select-children form-control' %>
-
+  <%= javascript_include_tag('select.js') %>
   <%= f.label :introduction,class: 'color' %>
   <%= f.text_area :introduction, class: 'form-control' %>
 
