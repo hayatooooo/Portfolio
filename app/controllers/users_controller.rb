@@ -12,14 +12,14 @@ class UsersController < ApplicationController
       @q = User.ransack(activated_true: true)
       @title = "All supporters"
     end
-    @users = @q.result.paginate(page: params[:page])
+    @users = @q.result.paginate(page: params[:page], :per_page => 5)
   end
   
    def show
       @user = User.find(params[:id])
       @category = @user.category_id
       @subcategory = @user.sub_category_id
-      @microposts = @user.microposts.paginate(page: params[:page])
+      @microposts = @user.microposts.paginate(page: params[:page], :per_page => 5)
    end
   
    def new
@@ -60,14 +60,14 @@ class UsersController < ApplicationController
   def following
     @title = "Follows"
     @user  = User.find(params[:id])
-    @users = @user.following.paginate(page: params[:page])
+    @users = @user.following.paginate(page: params[:page], :per_page => 5)
     render 'show_follow'
   end
 
   def followers
     @title = "Followers"
     @user  = User.find(params[:id])
-    @users = @user.followers.paginate(page: params[:page])
+    @users = @user.followers.paginate(page: params[:page], :per_page => 5)
     render 'show_follow'
   end
 

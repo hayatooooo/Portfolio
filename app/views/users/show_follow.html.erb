@@ -5,7 +5,7 @@
       <section class="user_info">
         <%= gravatar_for @user %>
         <h1 class = "color"><%= @user.name %></h1>
-        <span><%= link_to "view my profile", @user ,class:"linkcolor"%></span>
+        <span><%= link_to "マイアカウントを表示", @user ,class:"linkcolor"%></span>
         <span class = "color"><b>Tweet:</b> <%= @user.microposts.count %></span>
       </section>
       <section class="stats">

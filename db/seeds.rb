@@ -49,42 +49,83 @@ SubCategory.create!(name:  "モナコ",
 SubCategory.create!(name:  "マルセイユ",
              category_id: 5,
 )
-User.create!(name:  "Example User",
-             email: "example@railstutorial.org",
-             password:              "foobar",
-             password_confirmation: "foobar",
+User.create!(name:  "管理者",
+             email: "example@gmail.com",
+             password:              "example",
+             password_confirmation: "example",
              category_id:1,
              sub_category_id:1,
-             introduction:"サンプルユーザーです。",
+             introduction:"サンプルユーザー(管理者)です。",
              admin:     true,
              activated: true,
              activated_at: Time.zone.now)
-
-99.times do |n|
-  name  = Faker::Name.name
-  email = "example-#{n+1}@railstutorial.org"
-  password = "password"
-  User.create!(name:  name,
-               email: email,
-               password:              password,
-              password_confirmation: password,
+             
+User.create!(name:  "田中 太郎",
+             email: "example-1@gmail.com",
+             password:              "example",
+             password_confirmation: "example",
              category_id:2,
-             sub_category_id:1,
-             introduction:"テストユーザーです。",
-              activated: true,
-              activated_at: Time.zone.now)
+             sub_category_id:4,
+             introduction:"サンプルユーザー1です。",
+             activated: true,
+             activated_at: Time.zone.now)
+             
+User.create!(name:  "山田 花子",
+             email: "example-2@gmail.com",
+             password:              "example",
+             password_confirmation: "example",
+             category_id:3,
+             sub_category_id:7,
+             introduction:"サンプルユーザー2です。",
+             activated: true,
+             activated_at: Time.zone.now)
+
+User.create!(name:  "吉田 祐介",
+             email: "example-3@gmail.com",
+             password:              "example",
+             password_confirmation: "example",
+             category_id:4,
+             sub_category_id:10,
+             introduction:"サンプルユーザー3です。",
+             activated: true,
+             activated_at: Time.zone.now)
+
+User.create!(name:  "青山 恵子",
+             email: "example-4@gmail.com",
+             password:              "example",
+             password_confirmation: "example",
+             category_id:5,
+             sub_category_id:13,
+             introduction:"サンプルユーザー4です。",
+             activated: true,
+             activated_at: Time.zone.now)
+             
+User.create!(name:  "Michael",
+             email: "example-5@gmail.com",
+             password:              "example",
+             password_confirmation: "example",
+             category_id:5,
+             sub_category_id:15,
+             introduction:"サンプルユーザー5です。",
+             activated: true,
+             activated_at: Time.zone.now)
+
+  users = User.order(:created_at).take(6)
+1.times do
+  content = "初Tweetです！！"
+  users.each { |user| user.microposts.create!(content: content) }
 end
 
   users = User.order(:created_at).take(6)
-50.times do
-  content = Faker::Lorem.sentence(5)
+1.times do
+  content = "よろしくお願いします！"
   users.each { |user| user.microposts.create!(content: content) }
 end
 
 # リレーションシップ
 users = User.all
 user  = users.first
-following = users[2..50]
-followers = users[3..40]
+following = users[2..6]
+followers = users[3..5]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }

@@ -10,7 +10,7 @@
     <span class="title" id=dmessagetitle><%= talk.title(current_user, 50) %></span>
     <span class="content"><%= dmessage.content unless dmessage.nil? %></span>
     <span class="timestamp">
-      Posted <%= time_ago_in_words(talk.updated_at) %> ago.
+      投稿 <%= time_ago_in_words(talk.updated_at) %> 前
     </span>
   <% end %>
 </li>

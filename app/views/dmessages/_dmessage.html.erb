@@ -9,7 +9,7 @@
     <% end %>
     <span class="content"><%= dmessage.content %></span>
     <span class="timestamp">
-      Posted <%= time_ago_in_words(dmessage.created_at) %> ago.
+      投稿 <%= time_ago_in_words(dmessage.created_at) %> 前
       <% if current_user?(user) %>
         <%= link_to "delete", dmessage_path(dmessage),
                               class: "delete",

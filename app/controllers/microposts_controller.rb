@@ -9,7 +9,7 @@ class MicropostsController < ApplicationController
       redirect_to root_url
     else
       @q = Micropost.none.ransack
-      @feed_items = current_user.feed.paginate(page: params[:page])
+      @feed_items = current_user.feed.paginate(page: params[:page], :per_page => 5)
       render 'static_pages/home'
     end
   end

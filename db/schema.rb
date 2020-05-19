@@ -105,9 +105,6 @@ ActiveRecord::Schema.define(version: 20200517064449) do
     t.string "reset_digest"
     t.datetime "reset_sent_at"
     t.boolean "follow_notification", default: false
-    t.integer "team_id"
-    t.integer "league_id"
-    t.string "biko"
     t.integer "category_id"
     t.integer "sub_category_id"
     t.string "introduction"
