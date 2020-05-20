@@ -3,7 +3,7 @@
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
-      <h1 class="color">
+      <h1 class="color2">
         <div>
         <%= gravatar_for @user %>
         <br>
@@ -11,19 +11,19 @@
         <%= @user.name %>
         </div>
         <br>
-        <div>
+        <div class="color2position">
           <h5>・好きなリーグ</h5>
           <% if Category.find_by(id:@category) != nil %>
         <%= Category.find_by(id:@category).name %>
         <% end %>
         </div>
-        <div>
+        <div class="color2position">
           <h5>・好きなチーム</h5>
           <% if SubCategory.find_by(id:@subcategory) != nil %>
         <%= SubCategory.find_by(id:@subcategory).name %>
         <% end %>
         </div>
-        <div>
+        <div class="color2position">
           <h5>・紹介文</h5>
         <% if @user.introduction != "" %>
         <%= @user.introduction %>

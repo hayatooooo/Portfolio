@@ -1,4 +1,4 @@
 <%= link_to gravatar_for(current_user, size: 50), current_user %>
-<h1 class = "color"><%= current_user.name %></h1>
+<h1 class = "color2"><%= current_user.name %></h1>
 <span><%= link_to "マイアカウントを表示", current_user ,class:"linkcolor"%></span>
-<span class = "color"><%= pluralize(current_user.microposts.count, "tweet") %></span>
+<span class = "color2"><%= pluralize(current_user.microposts.count, "tweet") %></span>
