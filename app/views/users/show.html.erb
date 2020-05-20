@@ -1,58 +1,57 @@
 <% provide(:title, @user.name) %>
 <body class="main">
-<div class="row">
-  <aside class="col-md-4">
+  <div class="row">
+    <aside class="col-md-4">
     <section class="user_info">
-      <h1 class="color2">
-        <div>
+    <h1 class="color2">
+      <div>
         <%= gravatar_for @user %>
-        <br>
-        <br>
+        <br><br>
         <%= @user.name %>
-        </div>
-        <br>
-        <div class="color2position">
-          <h5>・好きなリーグ</h5>
-          <% if Category.find_by(id:@category) != nil %>
-        <%= Category.find_by(id:@category).name %>
+      </div>
+      <br>
+      <div class="color2position">
+        <h5>・好きなリーグ</h5>
+        <% if Category.find_by(id:@category) != nil %>
+          <%= Category.find_by(id:@category).name %>
         <% end %>
-        </div>
-        <div class="color2position">
-          <h5>・好きなチーム</h5>
-          <% if SubCategory.find_by(id:@subcategory) != nil %>
-        <%= SubCategory.find_by(id:@subcategory).name %>
+      </div>
+      <div class="color2position">
+        <h5>・好きなチーム</h5>
+        <% if SubCategory.find_by(id:@subcategory) != nil %>
+          <%= SubCategory.find_by(id:@subcategory).name %>
         <% end %>
-        </div>
-        <div class="color2position">
-          <h5>・紹介文</h5>
+      </div>
+      <div class="color2position">
+        <h5>・紹介文</h5>
         <% if @user.introduction != "" %>
-        <%= @user.introduction %>
+          <%= @user.introduction %>
         <% end %>
-        </div>
-      </h1>
+      </div>
+    </h1>
     </section>
-    <section class="stats">
-      <%= render 'shared/stats' %>
-    </section>
-     <section class="talk" >
-      <%= form_for Talk.new do |f| %>
-        <%= hidden_field_tag :member_id, @user.id %>
-        <% if @user.id != current_user.id %>
-        <%= f.submit "Direct Message", class: "btn btn-primary btntextsize" %>
+      <section class="stats">
+        <%= render 'shared/stats' %>
+      </section>
+      <section class="talk" >
+        <%= form_for Talk.new do |f| %>
+          <%= hidden_field_tag :member_id, @user.id %>
+          <% if @user.id != current_user.id %>
+            <%= f.submit "Direct Message", class: "btn btn-primary btntextsize" %>
+          <% end %>
         <% end %>
+      </section>
+    </aside>
+    <div class="col-md-8">
+      <h1 class="subtitle">Account</h1>
+      <%= render 'follow_form' if logged_in? %>
+      <% if @user.microposts.any? %>
+        <h3 class="color">Tweet (<%= @user.microposts.count %>)</h3>
+        <ol class="microposts ulbackcolor">
+          <%= render @microposts %>
+        </ol>
+        <%= will_paginate @microposts %>
       <% end %>
-    </section>
-  </aside>
-  <div class="col-md-8">
-          <h1 class="subtitle">Account</h1>
-    <%= render 'follow_form' if logged_in? %>
-    <% if @user.microposts.any? %>
-      <h3 class="color">Tweet (<%= @user.microposts.count %>)</h3>
-      <ol class="microposts ulbackcolor">
-        <%= render @microposts %>
-      </ol>
-      <%= will_paginate @microposts %>
-    <% end %>
+    </div>
   </div>
-</div>
 </body>

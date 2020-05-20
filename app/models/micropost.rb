@@ -10,9 +10,9 @@ class Micropost < ApplicationRecord
   validates :in_reply_to, presence: false
   validate :picture_size, :reply_to_user
     
-    def Micropost.including_replies(id)
-    where(in_reply_to: [id, 0]).or(Micropost.where(user_id: id))
-    end
+  def Micropost.including_replies(id)
+  where(in_reply_to: [id, 0]).or(Micropost.where(user_id: id))
+  end
 
   def set_in_reply_to
     if @index = content.index("@")
@@ -61,18 +61,17 @@ class Micropost < ApplicationRecord
     likes.find_by(user_id: user.id).destroy
   end
   
-    # 現在のユーザーがいいねしてたらtrueを返す
+  # 現在のユーザーがいいねしてたらtrueを返す
   def iine?(user)
     iine_users.include?(user)
   end
   
   private
 
-    # アップロードされた画像のサイズをバリデーションする
-    def picture_size
-      if picture.size > 5.megabytes
-        errors.add(:picture, "画像サイズは５MB未満にしてください。")
-      end
+  # アップロードされた画像のサイズをバリデーションする
+  def picture_size
+    if picture.size > 5.megabytes
+      errors.add(:picture, "画像サイズは５MB未満にしてください。")
     end
-    
+  end
 end

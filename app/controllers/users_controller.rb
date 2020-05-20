@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy,
                                           :following, :followers]
-    before_action :correct_user,   only: [:edit, :update]
-    before_action :admin_user,     only: :destroy
+  before_action :correct_user,   only: [:edit, :update]
+  before_action :admin_user,     only: :destroy
       
   def index
     if params[:q] && params[:q].reject { |key, value| value.blank? }.present?
@@ -15,18 +15,18 @@ class UsersController < ApplicationController
     @users = @q.result.paginate(page: params[:page], :per_page => 5)
   end
   
-   def show
-      @user = User.find(params[:id])
-      @category = @user.category_id
-      @subcategory = @user.sub_category_id
-      @microposts = @user.microposts.paginate(page: params[:page], :per_page => 5)
-   end
+  def show
+    @user = User.find(params[:id])
+    @category = @user.category_id
+    @subcategory = @user.sub_category_id
+    @microposts = @user.microposts.paginate(page: params[:page], :per_page => 5)
+  end
   
-   def new
-         @user = User.new
-   end
+  def new
+    @user = User.new
+  end
  
-   def create
+  def create
     @user = User.new(user_params)
     if @user.save
       @user.send_activation_email
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
     else
       render 'new'
     end
-   end
+  end
   
   def edit
     @user = User.find(params[:id])
@@ -74,26 +74,26 @@ class UsersController < ApplicationController
   private
   
   def search_params
-      params.require(:q).permit(:name_cont)
+    params.require(:q).permit(:name_cont)
   end
     
   def user_params
-  params.require(:user).permit(:name, :email,
+    params.require(:user).permit(:name, :email,
                                :password, :password_confirmation,
                                :follow_notification,
                                :category_id,:sub_category_id,:introduction)
   end
   
-        # beforeアクション
+  # beforeアクション
     
-        # 正しいユーザーかどうか確認
-    def correct_user
-      @user = User.find(params[:id])
-      redirect_to(root_url) unless current_user?(@user)
-    end
+  # 正しいユーザーかどうか確認
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(root_url) unless current_user?(@user)
+  end
    
-       # 管理者かどうか確認
-    def admin_user
-      redirect_to(root_url) unless current_user.admin?
-    end
+  # 管理者かどうか確認
+  def admin_user
+    redirect_to(root_url) unless current_user.admin?
+  end
 end

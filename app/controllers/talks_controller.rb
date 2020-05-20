@@ -29,18 +29,18 @@ class TalksController < ApplicationController
   
   private
     
-    def dmessage_params
-      params[:dmessage].merge!({ user_id: current_user.id, talk_id: @talk.id })
-      params.require(:dmessage).permit(:user_id, :talk_id, :content)
-    end
+  def dmessage_params
+    params[:dmessage].merge!({ user_id: current_user.id, talk_id: @talk.id })
+    params.require(:dmessage).permit(:user_id, :talk_id, :content)
+  end
     
-    def correct_member
-      @talk = current_user.talks.find_by(id: params[:id])
-      redirect_to root_url if @talk.nil?
-    end
+  def correct_member
+    @talk = current_user.talks.find_by(id: params[:id])
+    redirect_to root_url if @talk.nil?
+  end
     
-    def correct_user
-      @dmessage = current_user.dmessages.find_by(id: params[:id])
-      redirect_to root_url if @dmessage.nil?
-    end
+  def correct_user
+    @dmessage = current_user.dmessages.find_by(id: params[:id])
+    redirect_to root_url if @dmessage.nil?
+  end
 end

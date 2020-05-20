@@ -54,7 +54,7 @@ module SessionsHelper
     @current_user = nil
   end
   
-    # 永続的セッションを破棄する
+  # 永続的セッションを破棄する
   def forget(user)
     user.forget
     cookies.delete(:user_id)
@@ -68,7 +68,7 @@ module SessionsHelper
     @current_user = nil
   end
   
-    # 記憶したURL (もしくはデフォルト値) にリダイレクト
+  # 記憶したURL (もしくはデフォルト値) にリダイレクト
   def redirect_back_or(default)
     redirect_to(session[:forwarding_url] || default)
     session.delete(:forwarding_url)

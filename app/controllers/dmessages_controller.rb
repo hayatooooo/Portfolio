@@ -11,8 +11,8 @@ class DmessagesController < ApplicationController
   
   private
     
-    def correct_user
-      @dmessage = current_user.dmessages.find_by(id: params[:id])
-      redirect_to root_url if @dmessage.nil?
-    end
+  def correct_user
+    @dmessage = current_user.dmessages.find_by(id: params[:id])
+    redirect_to root_url if @dmessage.nil?
+  end
 end

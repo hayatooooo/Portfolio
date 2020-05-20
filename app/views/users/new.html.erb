@@ -1,8 +1,8 @@
 <% provide(:title, 'Create my account') %>
 <% provide(:button_text, 'Create') %>
 <body class="main">
-<h1 class="subtitle">Create my account</h1>
-<div class="row">
+  <h1 class="subtitle">Create my account</h1>
+  <div class="row">
     <%= javascript_include_tag('anime.js') %>
     <div class="col-md-3 animeleft">
       <p class="ml15">
@@ -15,8 +15,8 @@
       <span class="word">Communite</span>
       </p>
     </div>
-  <div class="col-md-6">
-    <%= render 'users/form' %>
+    <div class="col-md-6">
+      <%= render 'users/form' %>
+    </div>
   </div>
-</div>
 </body>

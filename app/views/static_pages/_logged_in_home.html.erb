@@ -1,5 +1,6 @@
 <body class="main">
    <div class="row">
+
       <aside class="col-md-4">
       </br>
          <section class="user_info">
@@ -64,14 +65,16 @@
       <p class="momtitle">プレミアリーグ月間優秀選手賞</p>
       <%= javascript_include_tag('accordionsraid.js') %>
       </aside>
-   <div class="col-md-8">
-     <ul class="nav nav-tabs">
-       <h1 class="subtitle">Tweet</h1>
-       <div class="search_form">
-         <%= render 'shared/microposts_search_form' %>
-       </div>
-     </ul>
-         <%= render 'shared/feed' %>
+
+      <div class="col-md-8">
+        <ul class="nav nav-tabs">
+          <h1 class="subtitle">Tweet</h1>
+          <div class="search_form">
+            <%= render 'shared/microposts_search_form' %>
+          </div>
+        </ul>
+            <%= render 'shared/feed' %>
+      </div>
+
    </div>
- </div>
 </body>

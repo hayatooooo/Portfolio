@@ -6,7 +6,7 @@ class Membership < ApplicationRecord
   
   private
     
-    def destroy_empty_talk
-      talk.destroy if talk.reload.memberships.empty?
-    end
+  def destroy_empty_talk
+    talk.destroy if talk.reload.memberships.empty?
+  end
 end

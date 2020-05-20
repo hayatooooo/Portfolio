@@ -1,5 +1,3 @@
-// js only creates and insert parts + click events adds classes
-
 var numOfPieces = 6 * 5;
 
 var frag = document.createDocumentFragment();
