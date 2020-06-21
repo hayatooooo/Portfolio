@@ -1,5 +1,9 @@
 # サッカーコミュニティサイトになります。
 
+# 開発環境
+
+windows10　×　cloud9　×　heroku
+
 # 以下、機能になります。
 
 ・Account登録(プロフィール画像はGravatarと連携)  
