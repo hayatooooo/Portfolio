@@ -1,6 +1,8 @@
-<% if @talks.any? %>
+<div>
+  <% if @talks.any? %>
   <ol class="talks">
     <%= render @talks %>
   </ol>
   <%= will_paginate @talks%>
-<% end %>
+  <% end %>
+</div>

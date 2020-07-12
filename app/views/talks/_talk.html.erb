@@ -1,7 +1,9 @@
-<li id="talk-<%=talk.id%>" class="ulbackcolor">
+<li id="talk-<%=talk.id%>" class="ulbackcolor talksposition">
   <% dmessage = talk.latest_message %>
   <% membership = talk.memberships.find_by(user: current_user) %>
-  <%= gravatar_for(dmessage.nil? ? talk.memberships.first.user : dmessage.user, size: 50) %>
+  <div class="imgposition">
+    <%= gravatar_for(dmessage.nil? ? talk.memberships.first.user : dmessage.user, size: 50) %>
+  </div>
   <%= link_to 'leave', membership_path(membership),
                                     class: "delete",
                                     method: :delete,

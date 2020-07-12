@@ -267,7 +267,7 @@ input {
   li {
     overflow: auto;
     padding: 10px 0;
-    border-bottom: 1px solid $gray-lighter;
+    border-bottom: 1px solid #333333;
   }
 }
 
@@ -278,7 +278,7 @@ input {
   padding: 0;
   li {
     padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
+    border-bottom: 1px solid #333333;
   }
   .user {
     margin-top: 5em;
@@ -346,12 +346,11 @@ span.picture {
 
 .talks {
   list-style: none;
-  padding: 0;
   a:hover {
     text-decoration: none;
   }
   li {
-    border-top: 1px solid #e8e8e8;
+      border-bottom: 1px solid #333333;
     a {
       display: block;
       padding: 10px 0;
@@ -480,13 +479,13 @@ span.picture {
 .btn-primary.disabled.focus, .btn-primary[disabled].focus, fieldset[disabled] .btn-primary.focus {
     background: rgba(0,0,64,0.8); //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
     color: #FFD700; //ボタンの上にポインタを持ってきたり、クリックしたりした時のテキストの色
-      letter-spacing: 2px;
+    letter-spacing: 2px;
 }
 
 .btn-primary.outline {
     border: 3px solid rgba(0,0,64,0.5); //アウトラインのみのボタンの線の色
     color: white; //アウトラインのみのボタンのテキストの色
-      transition: all 0.3s;
+    transition: all 0.3s;
 }
 
 .navbar{
@@ -498,12 +497,12 @@ span.picture {
   font-weight: bold;
   font-size: 120px;
   z-index: 1;
-   position: absolute;
-    top: 43%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
+  position: absolute;
+  top: 43%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
 }
 
 .subtitle{
@@ -511,7 +510,6 @@ span.picture {
   font-weight: bold;
   font-size: 50px;
   text-shadow: 0.2px 0.2px 0 #000000,-0.2px 0.2px 0 #000000,0.2px -0.2px 0 #000000,-0.2px -0.2px 0 #000000;
-
 }
 
 .sentence{
@@ -563,7 +561,6 @@ ul.logo {
 
 .ulbackcolor{
   background: rgba(255,255,255,0.7);
-padding-left: 20px;
 }
 
 .ulerrorbackcolor{
@@ -806,7 +803,6 @@ $contentFadeAT: 0.2s;
         transform: translate3d(0,0,0) rotateX(0) rotateY(0) !important;
         opacity: 1;
       }
-      
     }
   }
 
@@ -893,7 +889,6 @@ $contentFadeAT: 0.2s;
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
   border-bottom-left-radius: 4px;
-
   }
 }
 
@@ -934,7 +929,6 @@ $contentFadeAT: 0.2s;
 .item {
   display: block;
   position: absolute;
-
   line-height: 200px;
   font-size: 5em;
   text-align: center;
@@ -1245,6 +1239,35 @@ h1.ml8 {
 }
 
 .slidetextposition{
-height:500px;
+  height:500px;
   transform: rotateY(0deg) translateZ(250px);
+}
+
+.divuserinfo{
+  padding-top:10%;
+}
+
+.divuserinfo2{
+  padding-top:5%;
+}
+
+.divuserinfoname{
+ padding-top:10%;
+ margin-left:30%;
+}
+
+.divshareduserinfo{
+  padding-top:3%;
+}
+
+.talksposition{
+ padding-right:5%;
+}
+
+.serchposition{
+ padding-bottom:5%;
+}
+
+.imgposition{
+ padding-bottom:1%;
 }

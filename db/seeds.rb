@@ -50,7 +50,7 @@ SubCategory.create!(name:  "マルセイユ",
              category_id: 5,
 )
 User.create!(name:  "管理者",
-             email: "example@gmail.com",
+             email: "exampleuser10000@gmail.com",
              password:              "example",
              password_confirmation: "example",
              category_id:1,
@@ -61,7 +61,7 @@ User.create!(name:  "管理者",
              activated_at: Time.zone.now)
              
 User.create!(name:  "田中 太郎",
-             email: "example-1@gmail.com",
+             email: "exampleuser20000@gmail.com",
              password:              "example",
              password_confirmation: "example",
              category_id:2,
@@ -70,38 +70,39 @@ User.create!(name:  "田中 太郎",
              activated: true,
              activated_at: Time.zone.now)
              
-User.create!(name:  "山田 花子",
-             email: "example-2@gmail.com",
-             password:              "example",
-             password_confirmation: "example",
-             category_id:3,
-             sub_category_id:7,
-             introduction:"サンプルユーザー2です。",
-             activated: true,
-             activated_at: Time.zone.now)
-
-User.create!(name:  "吉田 祐介",
-             email: "example-3@gmail.com",
-             password:              "example",
-             password_confirmation: "example",
-             category_id:4,
-             sub_category_id:10,
-             introduction:"サンプルユーザー3です。",
-             activated: true,
-             activated_at: Time.zone.now)
 
 User.create!(name:  "青山 恵子",
-             email: "example-4@gmail.com",
+             email: "exampleuser30000@gmail.com",
              password:              "example",
              password_confirmation: "example",
              category_id:5,
              sub_category_id:13,
+             introduction:"サンプルユーザー2です。",
+             activated: true,
+             activated_at: Time.zone.now)
+
+User.create!(name:  "山田 花子",
+             email: "exampleuser40000@gmail.com",
+             password:              "example",
+             password_confirmation: "example",
+             category_id:3,
+             sub_category_id:7,
+             introduction:"サンプルユーザー3です。",
+             activated: true,
+             activated_at: Time.zone.now)
+
+User.create!(name:  "吉田 祐介",
+             email: "exampleuser50000@gmail.com",
+             password:              "example",
+             password_confirmation: "example",
+             category_id:4,
+             sub_category_id:10,
              introduction:"サンプルユーザー4です。",
              activated: true,
              activated_at: Time.zone.now)
              
 User.create!(name:  "Michael",
-             email: "example-5@gmail.com",
+             email: "exampleuser60000@gmail.com",
              password:              "example",
              password_confirmation: "example",
              category_id:5,

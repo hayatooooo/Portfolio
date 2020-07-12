@@ -2,7 +2,7 @@
 
 # 開発環境
 
-windows10　×　cloud9　×　heroku
+Windows10　×　Cloud9　×　Heroku
 
 # 以下、機能になります。
 
@@ -44,9 +44,9 @@ windows10　×　cloud9　×　heroku
 # 以下、テストユーザーになります。
 
 ・管理者  
-  email: example@gmail.com  
+  email: exampleuser10000@gmail.com  
   password: example  
 
-・サンプルユーザー1  
-  email: example-1@gmail.com  
+・サンプルユーザー2  
+  email: exampleuser20000@gmail.com  
   password: example  

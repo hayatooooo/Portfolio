@@ -4,9 +4,11 @@
     <aside class="col-md-4">
       <section class="user_info">
         <%= gravatar_for @user %>
-        <h1 class = "color2"><%= @user.name %></h1>
-        <span><%= link_to "マイアカウントを表示", @user ,class:"linkcolor"%></span>
-        <span class = "color2"><b>Tweet:</b> <%= @user.microposts.count %></span>
+        <div class="divuserinfo2">
+          <h1 class = "color2"><%= @user.name %></h1>
+          <span><%= link_to "マイアカウントを表示", @user ,class:"linkcolor"%></span>
+          <span class = "color2"><b>Tweet:</b> <%= @user.microposts.count %></span>
+        </div>
       </section>
       <section class="stats">
         <%= render 'shared/stats' %>
