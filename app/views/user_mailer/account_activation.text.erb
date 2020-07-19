@@ -1,5 +1,5 @@
 <%= @user.name %>,
 
-World Soccer Communiteへようこそ！以下のリンクをクリックして、アカウントを有効にしてください
+World Soccer Communityへようこそ！以下のリンクをクリックして、アカウントを有効にしてください
 
 <%= edit_account_activation_url(@user.activation_token, email: @user.email) %>

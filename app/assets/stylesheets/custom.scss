@@ -912,15 +912,15 @@ $contentFadeAT: 0.2s;
 
 .sraidcontainer {
   margin: 0 auto;
-  width: 270px;
+  width: 275px;
   height: 280px;
   position: relative;
   perspective: 1000px;
 }
 
 .carousel {
-  height: 20%;
-  width: 80%;
+  height: 25%;
+  width: 82%;
   position: absolute;
   transform-style: preserve-3d;
   transition: transform 1s;
