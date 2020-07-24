@@ -35,7 +35,7 @@ Windows10　×　Cloud9　×　Heroku
 ・Topページ　スライドショー  
 ・Topページ　aboutボタン　ポップアップ  
 ・Create my accountページ　アニメーション  
-・Create my リストボックス(「好きなリーグ」に応じて「好きなチーム」リストを動的に変更)  
+・Create my accountページ  リストボックス(「好きなリーグ」に応じて「好きなチーム」リストを動的に変更)  
 ・Log inページ　スライドショー  
 ・Tweetページ　スライドショー  
 ・Update my accountページ　アニメーション  
