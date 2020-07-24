@@ -1,24 +1,23 @@
 <body class="main">
    <div class="row">
 
-      <aside class="col-md-4">
-      </br>
-         <section class="user_info">
+      <aside class="col-md-4"></br>
+      <section class="user_info">
          <%= render 'shared/user_info' %>
-         </section>
-         <section class="stats">
+      </section>
+      <section class="stats">
          <%= render 'shared/stats' %>
-         </section>
-         <section class="micropost_form">
+      </section>
+      <section class="micropost_form">
          <%= render 'shared/micropost_form' %>
-         </section>
-       <div class="options">
-          <div class="option active" style="--optionBackground:url(/sar.png);">
+      </section>
+      <div class="options">
+         <div class="option active" style="--optionBackground:url(/sar.png);">
             <div class="shadow"></div>
-            <div class="label">
-               <div class="icon">
-                  <i class="fas fa-walking fa_text">1</i>
-               </div>
+               <div class="label">
+                  <div class="icon">
+                     <i class="fas fa-walking fa_text">1</i>
+                  </div>
                <div class="info">
                   <div class="main">Mohamed Salah</div>
                   <div class="sub">Liverpool</div>
@@ -39,10 +38,10 @@
          </div>
          <div class="option" style="--optionBackground:url(/blu.png);">
             <div class="shadow"></div>
-            <div class="label">
-               <div class="icon">
-                  <i class="fas fa-tree fa_text">3</i>
-               </div>
+               <div class="label">
+                  <div class="icon">
+                     <i class="fas fa-tree fa_text">3</i>
+                  </div>
                <div class="info">
                   <div class="main">Bruno Fernandes</div>
                   <div class="sub">Manchester United</div>
@@ -51,10 +50,10 @@
          </div>
          <div class="option" style="--optionBackground:url(/son.png);">
             <div class="shadow"></div>
-            <div class="label">
-               <div class="icon">
-                  <i class="fas fa-tint fa_text">4</i>
-               </div>
+               <div class="label">
+                  <div class="icon">
+                     <i class="fas fa-tint fa_text">4</i>
+                  </div>
                <div class="info">
                   <div class="main">Son Heung Min</div>
                   <div class="sub">Tottenham Hotspur</div>
@@ -73,7 +72,7 @@
             <%= render 'shared/microposts_search_form' %>
           </div>
         </ul>
-            <%= render 'shared/feed' %>
+        <%= render 'shared/feed' %>
       </div>
 
    </div>

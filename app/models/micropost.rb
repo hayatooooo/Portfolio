@@ -1,10 +1,14 @@
 class Micropost < ApplicationRecord
   before_validation :set_in_reply_to
+
   belongs_to :user
   has_many :likes, dependent: :destroy
   has_many :iine_users, through: :likes, source: :user
+
   default_scope -> { order(created_at: :desc) }
+
   mount_uploader :picture, PictureUploader
+
   validates :user_id, presence: true
   validates :content, presence: true, length: { maximum: 140 }
   validates :in_reply_to, presence: false
@@ -51,12 +55,12 @@ class Micropost < ApplicationRecord
     content[@index+2, user_name.length] == user_name
   end
 
-  # マイクロポストをいいねする
+  # マイクロポストをいいね
   def iine(user)
     likes.create(user_id: user.id)
   end
 
-  # マイクロポストのいいねを解除する（ネーミングセンスに対するクレームは受け付けません）
+  # マイクロポストのいいねを解除
   def uniine(user)
     likes.find_by(user_id: user.id).destroy
   end

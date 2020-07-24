@@ -2,9 +2,9 @@ class Talk < ApplicationRecord
   has_many :memberships, dependent: :destroy
   has_many :members, class_name: "User", through: :memberships, source: :user
   has_many :dmessages, dependent: :destroy
+
   default_scope -> { order(created_at: :desc) }
-  
-  # メンバーのユーザー名を", "で連結した文字列を指定した長さで返す。
+
   def title(current_user, length=100)
     counter = " (#{members.count})"
     length -= counter.length
@@ -21,8 +21,7 @@ class Talk < ApplicationRecord
   def latest_message
     dmessages.last if dmessages.count > 0
   end
-  
-  # トークから退出する
+
   def leave(user)
     membership = memberships.find_by(user: user)
     return false if membership.nil?

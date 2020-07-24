@@ -1,13 +1,13 @@
 var a = anime.timeline({loop:2})
 .add({
-    targets: '.ml15 .word',
+    targets: '.welcomeanime .word',
     scale: [20,1.1],
     opacity: [0,1],
     easing: "easeOutCirc",
     duration: 1000,
     delay: (el, i) => 1300 * i
   }).add({
-    targets: '.ml15',
+    targets: '.welcomeanime',
     opacity: 0,
     duration: 1300,
     easing: "easeOutExpo",

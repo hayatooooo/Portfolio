@@ -46,7 +46,6 @@ textarea {
 }
 
 /* typography */
-
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
 }
@@ -74,7 +73,6 @@ p {
 
 
 /* header */
-
 #logo {
   float: left;
   margin-right: 10px;
@@ -91,7 +89,6 @@ p {
 }
 
 /* footer */
-
 footer {
   margin-top: 45px;
   padding-top: 5px;
@@ -123,7 +120,6 @@ footer {
 }
 
 /* miscellaneous */
-
 .debug_dump {
   clear: both;
   float: left;
@@ -133,7 +129,6 @@ footer {
 }
 
 /* sidebar */
-
 aside {
   section.user_info {
     margin-top: 20px;
@@ -211,7 +206,6 @@ aside {
 }
 
 /* forms */
-
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
@@ -224,7 +218,6 @@ input {
 }
 
 /* forms */
-
 #error_explanation {
   color: red;
   ul {
@@ -260,7 +253,6 @@ input {
 }
 
 /* Users index */
-
 .users {
   list-style: none;
   margin: 0;
@@ -272,7 +264,6 @@ input {
 }
 
 /* microposts */
-
 .microposts {
   list-style: none;
   padding: 0;
@@ -337,13 +328,11 @@ span.picture {
 
 
 /* tabs */
-
 .nav-tabs a {
   font-size: 21px;
 }
 
 /* talks */
-
 .talks {
   list-style: none;
   a:hover {
@@ -383,7 +372,6 @@ span.picture {
 }
 
 /* dmessages */
-
 .dmessages {
   list-style: none;
   padding: 0;
@@ -428,7 +416,6 @@ span.picture {
 }
 
 /* dmessage form */
-
 .dmessage-form {
   height: 80px;
   margin: 10px 0;
@@ -459,8 +446,7 @@ span.picture {
     font-weight: bold;
 }
 
-/* レイアウト、デザイン最終調整 */
-
+/* レイアウト、デザイン調整 */
 .btn-primary {
     background: rgba(0,0,64,0.5); //ボタンの背景色
     color: white; //ボタンのテキストの色
@@ -611,11 +597,6 @@ ul.logo {
 }
 
 /* popup.js */
-
-body {
-  overflow: hidden;
-  font-family: Helvetica, Arial, sans-serif;
-}
 
 $pieceAT: 0.7s;
 $contentFadeAT: 0.2s;
@@ -897,7 +878,6 @@ $contentFadeAT: 0.2s;
 }
 
 /* swiper.min.js */
-
 .swiper-container {
   margin-left: auto;
   margin-right: auto;
@@ -909,7 +889,6 @@ $contentFadeAT: 0.2s;
 }
 
 /* rollsraid.js */
-
 .sraidcontainer {
   margin: 0 auto;
   width: 275px;
@@ -983,7 +962,6 @@ $contentFadeAT: 0.2s;
 }
 
 /* accordionsraid.js */
-
 $optionDefaultColours: #ED5565,#FC6E51,#FFCE54,#2ECC71,#5D9CEC,#AC92EC;
 
  .options {
@@ -1136,15 +1114,14 @@ $optionDefaultColours: #ED5565,#FC6E51,#FFCE54,#2ECC71,#5D9CEC,#AC92EC;
 }
 
 /* anime.js */
-
-.ml15 {
+.welcomeanime {
   font-weight: 1000;
   font-size: 1.7em;
   text-transform: uppercase;
   letter-spacing: 0.5em;
 }
 
-.ml15 .word {
+.welcomeanime .word {
   margin-top:35px;
   display: inline-block;
   line-height: 0.2em;
@@ -1156,8 +1133,7 @@ $optionDefaultColours: #ED5565,#FC6E51,#FFCE54,#2ECC71,#5D9CEC,#AC92EC;
 }
 
 /* anime2.js */
-
-h1.ml8 {
+h1.updateanime {
   font-weight: 900;
   font-size: 2.5em;
   color: #fff;
@@ -1165,7 +1141,7 @@ h1.ml8 {
   height: 6em;
 }
 
-.ml8 .letters-container {
+.updateanime .letters-container {
   position: absolute;
   left: 0;
   right: 0;
@@ -1175,7 +1151,7 @@ h1.ml8 {
   height: 2.5em;
 }
 
-.ml8 .letters {
+.updateanime .letters {
   position: relative;
   z-index: 2;
   display: inline-block;
@@ -1184,13 +1160,13 @@ h1.ml8 {
   top: -0.2em;
 }
 
-.ml8 .bang {
+.updateanime .bang {
   font-size: 1.4em;
   top: 0.2em;
   left: 0em;
 }
 
-.ml8 .circle {
+.updateanime .circle {
   position: absolute;
   left: 0;
   right: 0;
@@ -1199,14 +1175,14 @@ h1.ml8 {
   bottom: 0;
 }
 
-.ml8 .circle-white {
+.updateanime .circle-white {
   width: 6em;
   height: 6em;
   border: 2px dashed white;
   border-radius: 5em;
 }
 
-.ml8 .circle-dark {
+.updateanime .circle-dark {
   width: 5em;
   height: 5em;
   background-color: #FFD700;
@@ -1214,7 +1190,7 @@ h1.ml8 {
   z-index: 1;
 }
 
-.ml8 .circle-dark-dashed {
+.updateanime .circle-dark-dashed {
   border-radius: 2.8em;
   background-color: transparent;
   border: 2px dashed #FFD700;
@@ -1223,8 +1199,7 @@ h1.ml8 {
 }
 
 /* anime3.js */
-
-.ml16 {
+.talkanime {
   color: #FFD700;
   font-weight: 900;
   font-size: 2.1em;
@@ -1233,7 +1208,7 @@ h1.ml8 {
   overflow: hidden;
 }
 
-.ml16 .letter {
+.talkanime .letter {
   display: inline-block;
   line-height: 1.5em;
 }
