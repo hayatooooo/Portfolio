@@ -22,13 +22,4 @@ class StaticPagesController < ApplicationController
     end
       @url = root_path
   end
-
-  def help
-  end
-  
-  def about
-  end
-  
-  def contact
-  end
 end

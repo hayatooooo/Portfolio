@@ -10,14 +10,13 @@ class TalksController < ApplicationController
   def create
     @talk = Talk.new
     @talk.memberships.build(user_id: current_user.id)
-    @talk.memberships.build(user_id: params[:member_id])
     @talk.save
     redirect_to @talk
   end
   
   def dmessages
     @dmessage = Dmessage.new(dmessage_params)
-    # トークの更新日時を更新
+    # touchメソッドでupdate_atのみを更新(トークの更新日時を更新)
     @talk.touch
     if @dmessage.save
       redirect_to @talk

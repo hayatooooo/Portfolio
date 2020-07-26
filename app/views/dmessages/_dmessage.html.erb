@@ -1,5 +1,6 @@
 <li id="dmessage-<%= dmessage.id %>">
   <% user = dmessage.user %>
+  <!--自分か相手かで右寄せ、左寄せを指定-->
   <% class_suffix = current_user?(user) ? 'right' : 'left' %>
   <%= link_to gravatar_for(user, size: 50, additional_class: "gravatar-#{class_suffix}"), user %>
   <div class="balloon balloon-<%= class_suffix %>">

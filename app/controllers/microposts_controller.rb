@@ -3,6 +3,7 @@ class MicropostsController < ApplicationController
   before_action :correct_user,   only: :destroy
   
   def create
+    #モデルを関連付けしたときにnewではなくbuild
     @micropost = current_user.microposts.build(micropost_params)
     if @micropost.save
       flash[:success] = "ツイート完了！！"
@@ -24,6 +25,7 @@ class MicropostsController < ApplicationController
   private
 
   def micropost_params
+    #permitメソッドで利用可能なパラメータ名を指定
     params.require(:micropost).permit(:content, :picture)
   end
     

@@ -1,8 +1,8 @@
-# app/controllers/memberships_controller.rb
 class MembershipsController < ApplicationController
   before_action :logged_in_user
   before_action :correct_user, only: :destroy
   
+  #トークルーム作成
   def create
     @talk = Talk.find(params[:talk_id])
     params[:guest_users].each do |guest_user|

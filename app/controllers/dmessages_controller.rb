@@ -10,7 +10,8 @@ class DmessagesController < ApplicationController
   end
   
   private
-    
+  
+  #destroyの前に正しいユーザーか確認  
   def correct_user
     @dmessage = current_user.dmessages.find_by(id: params[:id])
     redirect_to root_url if @dmessage.nil?

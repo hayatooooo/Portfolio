@@ -1,3 +1,4 @@
+#投稿した画像を扱ったり、その画像をMicropostモデルと関連付け→gem CarrierWave
 class PictureUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
   process resize_to_limit: [400, 400]

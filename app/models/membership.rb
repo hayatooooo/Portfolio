@@ -5,7 +5,8 @@ class Membership < ApplicationRecord
   validates :user_id, uniqueness: { scope: :talk_id }
   
   private
-    
+  
+  #メンバーが誰もいない場合、トークルーム削除   
   def destroy_empty_talk
     talk.destroy if talk.reload.memberships.empty?
   end

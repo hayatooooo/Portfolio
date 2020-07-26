@@ -74,6 +74,7 @@ class UsersController < ApplicationController
   private
   
   def search_params
+    #name_cont→検索対象
     params.require(:q).permit(:name_cont)
   end
     

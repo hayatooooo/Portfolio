@@ -4,8 +4,12 @@ class RelationshipsController < ApplicationController
   def create
     @user = User.find(params[:followed_id])
     current_user.follow(@user)
+    #リクエストで指定されたフォーマット（HTML,JSON,XML）に合わせて結果を返す
     respond_to do |format|
+      #formatがhtml形式、
+      #該当ページに遷移する直前に閲覧されていた参照元（遷移元・リンク元）ページのURLにリダイレクト
       format.html { redirect_to @user }
+      #formatがjson形式
       format.js
     end
   end
