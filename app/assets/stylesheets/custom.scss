@@ -2,11 +2,9 @@
 @import "bootstrap";
 
 /* mixins, variables, etc. */
-
 $gray-medium-light: #eaeaea;
 
 /* universal */
-
 body {
   padding-top: 60px;
   background-position: center center;
@@ -39,7 +37,7 @@ textarea {
 
 .center {
   text-align: center;
-   position: relative;
+  position: relative;
   h1 {
     margin-bottom: 10px;
   }
@@ -117,15 +115,6 @@ footer {
 　-moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;
   box-sizing:         border-box;
-}
-
-/* miscellaneous */
-.debug_dump {
-  clear: both;
-  float: left;
-  width: 100%;
-  margin-top: 45px;
-  @include box_sizing;
 }
 
 /* sidebar */
@@ -442,17 +431,18 @@ span.picture {
 }
 
 #dmessagetitle{
-    font-size: 1.2em;
-    font-weight: bold;
+  font-size: 1.2em;
+  font-weight: bold;
 }
 
 /* レイアウト、デザイン調整 */
 .btn-primary {
-    background: rgba(0,0,64,0.5); //ボタンの背景色
-    color: white; //ボタンのテキストの色
-      transition: all 0.3s;
+  background: rgba(0,0,64,0.5); //ボタンの背景色
+  color: white; //ボタンのテキストの色
+  transition: all 0.3s;
 }
 
+//bootstrapの仕様を上書き
 .btn-primary:hover, .btn-primary:focus, 
 .btn-primary:active, .btn-primary:active:focus, .btn-primary:active:hover, .btn-primary:active.focus,
 .btn-primary.active, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary.active.focus,
@@ -463,19 +453,19 @@ span.picture {
 .btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover,
 .btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus,
 .btn-primary.disabled.focus, .btn-primary[disabled].focus, fieldset[disabled] .btn-primary.focus {
-    background: rgba(0,0,64,0.8); //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
-    color: #FFD700; //ボタンの上にポインタを持ってきたり、クリックしたりした時のテキストの色
-    letter-spacing: 2px;
+  background: rgba(0,0,64,0.8); //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
+  color: #FFD700; //ボタンの上にポインタを持ってきたり、クリックしたりした時のテキストの色
+  letter-spacing: 2px;
 }
 
 .btn-primary.outline {
-    border: 3px solid rgba(0,0,64,0.5); //アウトラインのみのボタンの線の色
-    color: white; //アウトラインのみのボタンのテキストの色
-    transition: all 0.3s;
+  border: 3px solid rgba(0,0,64,0.5); //アウトラインのみのボタンの線の色
+  color: white; //アウトラインのみのボタンのテキストの色
+  transition: all 0.3s;
 }
 
 .navbar{
-    color:#fff;
+  color:#fff;
 }
 
 .top{
@@ -540,9 +530,9 @@ ul.logo {
 
 #linkcolor{
   color:#FFFF00;
-&:hover {
+  &:hover {
     color: #FFD700;
-  }
+    }
 }
 
 .ulbackcolor{
@@ -577,12 +567,12 @@ ul.logo {
   background-color: rgba(255,255,255,0);
   border-style: none;
   &:hover{
-  background-color: rgba(255,255,255,0);
-  border-style: none;
+    background-color: rgba(255,255,255,0);
+    border-style: none;
   }
-    &:active{
-  background-color: rgba(255,255,255,0);
-  border-style: none;
+  &:active{
+    background-color: rgba(255,255,255,0);
+    border-style: none;
   }
 }
 
@@ -590,27 +580,34 @@ ul.logo {
  color: red;
 }
 
-*, *:before, *:after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 /* popup.js */
+//独自関数を定義(Sass(SCSS)の機能)
+//変数→先頭$で定義
+//関数、return、if、for→先頭@で定義
+//@mixin→引数を使うことができる。初期値を設定しておくことも可能。※@includeで呼び出さないと使えない
+//map-get($map,$key)→$mapの中から$keyに対応した値を取得
+//map-merge($map1,$map2)→$map1と$map2の 2 つの map をマージ
+//ピースやピースの破片たちはページが表示された段階で、hidden状態で存在
 
+//ピースの速度
 $pieceAT: 0.7s;
+//コンテンツエリアの速度
 $contentFadeAT: 0.2s;
 
+//独自関数
 @function map-set($map, $key, $value) {
   $new: ($key: $value);
   @return map-merge($map, $new);
 }
 
+//ピース1つ1つにランダム性を持たせる
 @mixin shatteredPopup($inRow: 6, $inCol: 6) {
+  //コンテンツエリアを6×6に分割
   $pieces: $inRow * $inCol;
   $heights: ();
   $hTotal: 100;
 
+  //ピースごとにランダムな高さを算出
   @for $i from 1 through $inCol {
     $h: 100 / $inCol;
     $hVal: $h * 0.7 + floor(random($h*0.6));
@@ -621,10 +618,11 @@ $contentFadeAT: 0.2s;
 
     $hTotal: $hTotal - $hVal;
     $heights: map-set($heights, $i, $hVal);
+    
     $widths: ();
-
     $wTotal: 100;
-
+    
+    //ピースごとにランダムな幅を算出
     @for $j from 1 through $inRow {
       $w: 100 / $inRow;
       $wVal: $w * 0.7 + floor(random($w*0.6));
@@ -637,13 +635,15 @@ $contentFadeAT: 0.2s;
       $widths: map-set($widths, $j, $wVal);
     }
 
+    //通常、プロパティの値にしか使用できないが、#{}と組み合わせることでセレクタやプロパティ名にも使うことができる
     $heights: map-set($heights, 'widths-#{$i}', $widths);
   }
 
   $k: 4;
 
+  //ピース1つ1つの3Dの動き
   @for $i from 1 through $pieces {
-    .popup__piece:nth-child(#{$i}) {
+    .popup_piece:nth-child(#{$i}) {
       $indexH: ceil($i / $inCol);
       $pieceH: map-get($heights, $indexH);
       height: percentage($pieceH / 100);
@@ -656,7 +656,7 @@ $contentFadeAT: 0.2s;
       $pieceX: percentage((30 + random(40)) / 100);
 
       @for $j from 1 through 3 {
-        .popup__piece-inner:nth-child(#{$j}) {
+        .popup_piece-inner:nth-child(#{$j}) {
           $x: (-60 + random(120)) * 1vw;
           $y: (-60 + random(120)) * 1vh;
           $z: (900 - random(1800)) * 1px;
@@ -680,13 +680,15 @@ $contentFadeAT: 0.2s;
       }
     }
     
-    &.s--closed .popup__piece:nth-child(#{$i}) {
+    //閉じるボタン押下後のピースの破片の動き
+    //translate3d→要素を 3D 空間内で再配置
+    &.s--closed .popup_piece:nth-child(#{$i}) {
       $rndPieceY: (100 + random(50)) * 1vh;
       
       transform: translate3d(0,$rndPieceY,0);
       
       @for $j from 1 through 3 {
-        .popup__piece-inner:nth-child(#{$j}) {
+        .popup_piece-inner:nth-child(#{$j}) {
           $x: (-80 + random(160)) * 1vw;
           $z: (900 - random(1800)) * 1px;
           $rtX: 120deg + random(360deg);
@@ -697,9 +699,9 @@ $contentFadeAT: 0.2s;
       }
     }
   }
-
 }
 
+//ポップアップの表示位置を調整
 .popups-cont {
   display: flex;
   justify-content: center;
@@ -714,26 +716,11 @@ $contentFadeAT: 0.2s;
   pointer-events: none;
   transition: z-index 0s $contentFadeAT/2 + $pieceAT;
   
+  //ポップアップ出現後、最前面へ
   &.s--popup-active {
     z-index: 1000;
     pointer-events: auto;
     transition: z-index 0s 0s;
-  }
-  
-  &__overlay {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    //background: rgba(0,0,0,0.2);
-    opacity: 0;
-    transition: opacity $pieceAT/2;
-    
-    .popups-cont.s--popup-active & {
-      opacity: 1;
-      transition: opacity $pieceAT/2 $pieceAT/2;
-    }
   }
 }
 
@@ -743,9 +730,11 @@ $contentFadeAT: 0.2s;
   width: 500px;
   height: 490px;
   transform-style: preserve-3d;
+  //ランダムな動きをインクルード
   @include shatteredPopup;
 
-  &__pieces {
+  //pieceの集合体(コンテンツエリア)
+  &_pieces {
     position: absolute;
     left: 0;
     top: 0;
@@ -753,7 +742,8 @@ $contentFadeAT: 0.2s;
     height: 100%;
   }
 
-  &__piece {
+  //6×6のpiece
+  &_piece {
     float: left;
     position: relative;
     transform-style: preserve-3d;
@@ -769,6 +759,7 @@ $contentFadeAT: 0.2s;
       clear: both;
     }
 
+    //pieceの破片
     &-inner {
       position: absolute;
       left: 0;
@@ -787,7 +778,8 @@ $contentFadeAT: 0.2s;
     }
   }
 
-  &__content {
+  //コンテンツエリアと文字
+  &_content {
     position: relative;
     min-height: 500px;
     padding: 30px;
@@ -801,8 +793,9 @@ $contentFadeAT: 0.2s;
       opacity: 1;
     }
   }
-  
-  &__close {
+
+  //閉じるボタン
+  &_close {
     position: absolute;
     right: 30px;
     top: 30px;
@@ -821,28 +814,22 @@ $contentFadeAT: 0.2s;
       background: #fff;
     }
     
+    //右肩上がりの線
     &:before {
       transform: rotate(45deg);
     }
     
+    //右肩下がりの線
     &:after {
       transform: rotate(-45deg);
     }
   }
   
-  &__heading {
-    margin-bottom: 20px;
-    font-size: 50px;
-    font-weight: bolder;
-    letter-spacing: 1px;
-  }
-  
-  &__text {
+  &_text {
     font-size: 20px;
     line-height: 1.5;
     font-weight: bolder;
   }
-
 }
 
 .popup-btn {
@@ -894,6 +881,7 @@ $contentFadeAT: 0.2s;
   width: 275px;
   height: 280px;
   position: relative;
+  //3D変形の奥行きの深さを指定する
   perspective: 1000px;
 }
 
@@ -901,6 +889,7 @@ $contentFadeAT: 0.2s;
   height: 25%;
   width: 82%;
   position: absolute;
+  //フラット化されずに3D空間の中でのそれらの位置を維持
   transform-style: preserve-3d;
   transition: transform 1s;
 }
@@ -909,14 +898,12 @@ $contentFadeAT: 0.2s;
   display: block;
   position: absolute;
   line-height: 200px;
-  font-size: 5em;
-  text-align: center;
-  color: #FFF;
   opacity: 0.95;
-  border-radius: 10px;
 }
 
 .a {
+  //Y軸を軸とする角度によって時計回りの回転を指定
+  //Z方向の距離で移動を指定
   transform: rotateY(0deg) translateZ(250px);
 }
 .b {
@@ -940,174 +927,139 @@ $contentFadeAT: 0.2s;
   position: absolute;
   top: 510px;
   padding: 1em 2em;
-  cursor: pointer;
   background: rgba(0,0,64,0.5);
   border-radius: 5px;
   border-top: 1px solid rgba(0,0,64,0.5);
   box-shadow: 0 5px 0 rgba(0,0,64,0.9);
   transition: box-shadow 0.1s, top 0.1s;
 }
-.snext:hover, .sprev:hover { color: #FFD700; }
+
+.snext:hover, .sprev:hover {
+  color: #FFD700; 
+}
+
 .snext:active, .sprev:active {
   top: 514px;
   box-shadow: 0 1px 0 rgba(0,0,64,0.9);
 }
+
 .snext { right: 5em;
   color: white;
   font-weight: bolder;
 }
+
 .sprev { left: 5em;
   color: white;
   font-weight: bolder;
 }
 
 /* accordionsraid.js */
-$optionDefaultColours: #ED5565,#FC6E51,#FFCE54,#2ECC71,#5D9CEC,#AC92EC;
-
- .options {
-      display:flex;
-      flex-direction:row;
-      align-items:stretch;
-      overflow:hidden;
-
-      min-width:360px;
-      max-width:300px;
-      width:calc(100% - 100px);
+.options {
+  display:flex;
+  min-width:360px;
+  max-width:300px;
+  height:300px;
       
-      height:300px;
-      
-      @for $i from 1 through 4 {
-         @media screen and (max-width:798px - $i*80) {
-            min-width:300px - $i*80;
-            .option:nth-child(#{6-$i}) {
-               display:none;
-            }
-         }
+  .option {
+    position: relative;
+    // 表示方法
+    overflow:hidden;
+    min-width:30px;
+    margin:2px;
+    background:var(--optionBackground);
+    background-size:auto 120%;
+    background-position:center;
+    // タイミング関数
+    transition:.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+
+      &.active {
+        // フレックスコンテナ内のアイテムの伸び方の比率
+        flex-grow:10000;
+        transform:scale(1);
+        max-width:500px;
+        margin:0px;
+        border-radius:4px;
+        background-size:auto 100%;
+          .shadow {
+            box-shadow:inset 0 -120px 120px -120px black, inset 0 -120px 120px -100px black;
+          }
+          .label {
+            bottom:7px;
+            left:3px;
+              // 親要素の直接の子要素に適用されるセレクタ            
+              .info >div {
+                left:0px;
+                opacity:1;
+              }
+          }
       }
-      
-      .option {
-         position: relative;
-         overflow:hidden;
 
-         min-width:30px;
-         margin:2px;
-         //border:0px solid --defaultColor;
+      // 非activeの時のlabel
+      &:not(.active) {
+        .label {
+          bottom:5px;
+          left:-10px;
+          .info >div {
+            left:20px;
+            opacity:0;
+          }
+        }
+      }
 
-         background:var(--optionBackground, var(--defaultBackground, #E6E9ED));
-         background-size:auto 120%;
-         background-position:center;
+      .shadow {
+        position: absolute;
+        bottom:0px;
+        left:0px;
+        right:0px;
+        height:50px;
+        transition:.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+      }
 
-         cursor: pointer;
-
-         transition:.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
-
-         @for $i from 1 through length($optionDefaultColours) {
-            &:nth-child(#{$i}) {
-               --defaultBackground:#{nth($optionDefaultColours, $i)};
-            }
-         }
-         &.active {
-            flex-grow:10000;
-            transform:scale(1);
-            
-            max-width:500px;
-            margin:0px;
-            border-radius:4px;
-            
-            background-size:auto 100%;
-            .shadow {
-               box-shadow:inset 0 -120px 120px -120px black, inset 0 -120px 120px -100px black;
-            }
-            .label {
-               bottom:7px;
-               left:3px;
-               .info >div {
-                  left:0px;
-                  opacity:1;
-               }
-            }
-            /*&:active {
-               transform:scale(0.9);
-            }*/
-         }
-         &:not(.active) {
-            flex-grow:1;
-            
-            border-radius:4px;
-            .shadow {
-               bottom:-40px;
-               box-shadow:inset 0 -120px 0px -120px black, inset 0 -120px 0px -100px black;
-            }
-            .label {
-               bottom:5px;
-               left:-10px;
-               .info >div {
-                  left:20px;
-                  opacity:0;
-               }
-            }
-         }
-         .shadow {
-            position: absolute;
-            bottom:0px;
-            left:0px;
-            right:0px;
-            
-            height:50px;
-            
-            transition:.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
-         }
-         .label {
+      .label {
+        display:flex;
+        position: absolute;
+        right:0px;
+        height:40px;
+        transition:.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+          .icon {
             display:flex;
-            position: absolute;
-            right:0px;
-
+            flex-direction:row;
+            justify-content:center;
+            align-items:center;
+            min-width:40px;
+            max-width:40px;
             height:40px;
-            transition:.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
-            .icon {
-               display:flex;
-               flex-direction:row;
-               justify-content:center;
-               align-items:center;
-               
-               min-width:40px;
-               max-width:40px;
-               height:40px;
-               border-radius:100%;
-
-               background-color:white;
-               color:var(--defaultBackground);
-            }
-            .info {
-               display:flex;
-               flex-direction:column;
-               justify-content:center;
-               
-               margin-left:10px;
-               
-               color:white;
-               
-               white-space: pre;
-               >div {
-                  position: relative;
-                  
-                  transition:.5s cubic-bezier(0.05, 0.61, 0.41, 0.95), opacity .5s ease-out;
-               }
-               .main {
-                  font-weight:bold;
-                  font-size:1.2rem;
-               }
+            border-radius:100%;
+            background-color:white;
+          }
+          .info {
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            margin-left:10px;
+            color:white;
+              >div {
+                position: relative;
+                //ゆっくり終わる
+                transition:.5s cubic-bezier(0.05, 0.61, 0.41, 0.95), opacity .5s ease-out;
+              }
+              .main {
+                font-weight:bold;
+                font-size:1.2rem;
+              }
                .sub {
-                  transition-delay:.1s;
-               }
-            }
-         }
+                transition-delay:.1s;
+              }
+          }
       }
- } 
+  }
+} 
+
 .fa_text{
   font-size:30px;
   color:black;
 }
+
 .momtitle{
   font-size:20px;
   color:white;
@@ -1129,7 +1081,7 @@ $optionDefaultColours: #ED5565,#FC6E51,#FFCE54,#2ECC71,#5D9CEC,#AC92EC;
 }
 
 .animeleft{
-   text-align: left;
+  text-align: left;
 }
 
 /* anime2.js */

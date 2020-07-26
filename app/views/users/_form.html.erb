@@ -8,6 +8,7 @@
   <%= f.email_field :email, class: 'form-control' %>
 
   <%= f.label :category_id,class: 'color' %>
+  <!-- data-children-pathに子カテゴリを取得する際のpathが入る-->
   <% category_options = Category.order(:id).map { |c| [c.name, c.id, data: { children_path: category_sub_categories_path(c) }] } %>
   <%= f.select :category_id, category_options, { include_blank: true }, class: 'select-parent form-control' %>
 
