@@ -1,7 +1,7 @@
 <% provide(:title, @user.name) %>
-<body class="main">
-  <div class="row">
-    <aside class="col-md-4">
+<div class="row">
+  <aside class="col-md-4">
+    <!--ユーザー情報-->
     <section class="user_info">
     <h1 class="color2">
       <div>
@@ -32,28 +32,29 @@
       </div>
     </h1>
     </section>
-      <section class="stats">
-        <%= render 'shared/stats' %>
-      </section>
-      <section class="talk" >
-        <%= form_for Talk.new do |f| %>
-          <%= hidden_field_tag :member_id, @user.id %>
-          <% if @user.id != current_user.id %>
-            <%= f.submit "Direct Message", class: "btn btn-primary btntextsize" %>
-          <% end %>
+    <!--フォロー、フォロワー情報-->
+    <section class="stats">
+      <%= render "shared/stats" %>
+    </section>
+    <!--自身以外のアカウントページの場合は、DMボタンを表示-->
+    <section class="talk" >
+      <%= form_for Talk.new do |f| %>
+        <%= hidden_field_tag :member_id, @user.id %>
+        <% if @user.id != current_user.id %>
+          <%= f.submit "Direct Message", class: "btn btn-primary btntextsize" %>
         <% end %>
-      </section>
-    </aside>
-    <div class="col-md-8">
-      <h1 class="subtitle">Account</h1>
-      <%= render 'follow_form' if logged_in? %>
-      <% if @user.microposts.any? %>
-        <h3 class="color">Tweet (<%= @user.microposts.count %>)</h3>
-        <ol class="microposts ulbackcolor">
-          <%= render @microposts %>
-        </ol>
-        <%= will_paginate @microposts %>
       <% end %>
-    </div>
+    </section>
+  </aside>
+  <div class="col-md-8">
+    <h1 class="subtitle">Account</h1>
+    <%= render "follow_form" if logged_in? %>
+    <% if @user.microposts.any? %>
+      <h3 class="color">Tweet (<%= @user.microposts.count %>)</h3>
+      <ol class="microposts ulbackcolor">
+        <%= render @microposts %>
+      </ol>
+      <%= will_paginate @microposts %>
+    <% end %>
   </div>
-</body>
+</div>

@@ -1,11 +1,11 @@
 <div class="serchposition">
   <%= search_form_for @q do |f| %>
-  <%= f.label :name_cont, 'Supporter検索' ,class: 'color' %>
+    <%= f.label :name_cont, "Supporter検索" ,class: "color" %>
     <div class="input-group">
       <%= f.text_field :name_cont, placeholder: "サポーターの名前を入れてください。",
-                        class: 'form-control' %>
+                        class: "form-control" %>
       <span class="input-group-btn">
-       <%= f.submit 'Go', class: "btn btn-primary btntextsize" %>
+        <%= f.submit "Go", class: "btn btn-primary btntextsize" %>
       </span>
     </div>
   <% end %>

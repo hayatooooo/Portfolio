@@ -1,8 +1,11 @@
+<!--自分の投稿以外の場合に表示-->
 <% if !current_user?(micropost.user) %>
   <span class="like">
     <% if micropost.iine?(current_user) %>
+    <!--Ajaxで処理するためにremote: true-->
       <%= form_for(micropost.likes.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
         <%= button_tag(class: "btn btn-default btn-xs likebtn") do %>
+          <!--アイコンの後ろにカウントを表示-->
           <%= content_tag :span, "#{micropost.likes_count}", class: "glyphicon glyphicon-heart color-red" %>
         <% end %>
       <% end %>

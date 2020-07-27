@@ -1,14 +1,10 @@
 class Micropost < ApplicationRecord
   before_validation :set_in_reply_to
-
   belongs_to :user
   has_many :likes, dependent: :destroy
   has_many :iine_users, through: :likes, source: :user
-
   default_scope -> { order(created_at: :desc) }
-
   mount_uploader :picture, PictureUploader
-
   validates :user_id, presence: true
   validates :content, presence: true, length: { maximum: 140 }
   validates :in_reply_to, presence: false

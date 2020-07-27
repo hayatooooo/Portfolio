@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
+  #URLは /users/1/following や /users/1/followersの形
   resources :users do
     member do
       get :following, :followers
@@ -27,7 +28,6 @@ Rails.application.routes.draw do
   resources :memberships,          only: :destroy
   resources :dmessages,            only: :destroy
   resources :likes, only: [:create, :destroy]
-  
   resources :categories, only: [] do
     resources :sub_categories, only: :index
   end

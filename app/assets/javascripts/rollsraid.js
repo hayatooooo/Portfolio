@@ -8,10 +8,10 @@ $(".sprev").on("click", { d: "p" }, rotate);
 
 //60刻みで回転
 function rotate(e){
-  if(e.data.d=="n"){
+  if(e.data.d == "n"){
     currdeg = currdeg - 60;
   }
-  if(e.data.d=="p"){
+  if(e.data.d == "p"){
     currdeg = currdeg + 60;
   }
   //ブラウザ・サポートごとに設定

@@ -1,18 +1,18 @@
 #coffeescriptは最近はあまり使わないらしい
-$(document).on 'turbolinks:load', -> 
+$(document).on "turbolinks:load", -> 
   do ->
     replaceSelectOptions = ($select, results) ->
       #いったん空の選択肢を追加したあと、サーバーから受け取った値を設定
-      $select.html $('<option>')
+      $select.html $("<option>")
       $.each results, ->
-        option = $('<option>').val(this.id).text(this.name)
+        option = $("<option>").val(this.id).text(this.name)
         $select.append(option)
 
     replaceChildrenOptions = ->
       # 選択された親カテゴリのオプションから、data-children-pathの値を読み取る
-      childrenPath = $(@).find('option:selected').data().childrenPath
+      childrenPath = $(@).find("option:selected").data().childrenPath
       # 子カテゴリのセレクトボックスを取得する
-      $selectChildren = $(@).closest('form').find('.select-children')
+      $selectChildren = $(@).closest("form").find(".select-children")
       if childrenPath?
         # childrenPathが存在する = 親カテゴリが選択されている場合、
         # ajaxでサーバーに子カテゴリの一覧を問い合わせる
@@ -32,5 +32,5 @@ $(document).on 'turbolinks:load', ->
         replaceSelectOptions($selectChildren, [])
 
     #親カテゴリ変更時
-    $(document).on 'turbolinks:load',$('.select-parent').on
-      'change': replaceChildrenOptions
+    $(document).on "turbolinks:load",$(".select-parent").on
+      "change": replaceChildrenOptions

@@ -4,15 +4,14 @@
   <div class="imgposition">
     <%= gravatar_for(dmessage.nil? ? talk.memberships.first.user : dmessage.user, size: 50) %>
   </div>
-  <%= link_to 'leave', membership_path(membership),
+  <!--data:confirmでダイアログ表示-->
+  <%= link_to "leave", membership_path(membership),
                                     class: "delete",
                                     method: :delete,
                                     data: { confirm: "トークルームを削除します。よろしいですか？" } %>
   <%= link_to(talk) do %>
-    <span class="title" id=dmessagetitle><%= talk.title(current_user) %></span>
+    <span class="title" id="dmessagetitle"><%= talk.title(current_user) %></span>
     <span class="content"><%= dmessage.content unless dmessage.nil? %></span>
-    <span class="timestamp">
-      投稿 <%= time_ago_in_words(talk.updated_at) %> 前
-    </span>
+    <span class="timestamp">投稿 <%= time_ago_in_words(talk.updated_at) %> 前</span>
   <% end %>
 </li>

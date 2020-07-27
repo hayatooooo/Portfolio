@@ -1,35 +1,26 @@
 <%= form_for(@user) do |f| %>
-  <%= render 'shared/error_messages', object: @user %>
-
-  <%= f.label :name,class: 'color' %>
-  <%= f.text_field :name, class: 'form-control' %>
-
-  <%= f.label :email,class: 'color' %>
-  <%= f.email_field :email, class: 'form-control' %>
-
-  <%= f.label :category_id,class: 'color' %>
+  <%= render "shared/error_messages", object: @user %>
+  <%= f.label :name,class: "color" %>
+  <%= f.text_field :name, class: "form-control" %>
+  <%= f.label :email,class: "color" %>
+  <%= f.email_field :email, class: "form-control" %>
+  <%= f.label :category_id,class: "color" %>
   <!-- data-children-pathに子カテゴリを取得する際のpathが入る-->
   <% category_options = Category.order(:id).map { |c| [c.name, c.id, data: { children_path: category_sub_categories_path(c) }] } %>
-  <%= f.select :category_id, category_options, { include_blank: true }, class: 'select-parent form-control' %>
-
-  <%= f.label :sub_category_id,class: 'color' %>
+  <%= f.select :category_id, category_options, { include_blank: true }, class: "select-parent form-control" %>
+  <%= f.label :sub_category_id,class: "color" %>
   <% sub_categories = @user.category.try(:sub_categories) || [] %>
   <% sub_category_options = sub_categories.map { |c| [c.name, c.id] } %>
-  <%= f.select :sub_category_id, sub_category_options, { include_blank: true }, class: 'select-children form-control' %>
-
-  <%= f.label :introduction,class: 'color' %>
-  <%= f.text_area :introduction, class: 'form-control' %>
-
-  <%= f.label :password,class: 'color' %>
-  <%= f.password_field :password, class: 'form-control' %>
-
-  <%= f.label :password_confirmation,class: 'color'%>
-  <%= f.password_field :password_confirmation, class: 'form-control' %>
-
-  <%= f.label :follow_notification, class:"checkbox inline" do %>
+  <%= f.select :sub_category_id, sub_category_options, { include_blank: true }, class: "select-children form-control" %>
+  <%= f.label :introduction,class: "color" %>
+  <%= f.text_area :introduction, class: "form-control" %>
+  <%= f.label :password,class: "color" %>
+  <%= f.password_field :password, class: "form-control" %>
+  <%= f.label :password_confirmation,class: "color"%>
+  <%= f.password_field :password_confirmation, class: "form-control" %>
+  <%= f.label :follow_notification, class: "checkbox inline" do %>
     <%= f.check_box :follow_notification %>
     <span class="color">フォロー通知、フォロー解除通知を受け取りますか？</span>
   <% end %>
-
   <%= f.submit yield(:button_text), class: "btn btn-primary btntextsize" %>
 <% end %>

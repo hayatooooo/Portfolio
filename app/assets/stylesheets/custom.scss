@@ -430,7 +430,7 @@ span.picture {
   }
 }
 
-#dmessagetitle{
+#dmessagetitle {
   font-size: 1.2em;
   font-weight: bold;
 }
@@ -464,11 +464,11 @@ span.picture {
   transition: all 0.3s;
 }
 
-.navbar{
+.navbar {
   color:#fff;
 }
 
-.top{
+.top {
   color: rgba(255,255,255,0.7);
   font-weight: bold;
   font-size: 120px;
@@ -481,20 +481,20 @@ span.picture {
   -ms-transform: translate(-50%, -50%);
 }
 
-.subtitle{
+.subtitle {
   color: rgb(255,255,255);
   font-weight: bold;
   font-size: 50px;
   text-shadow: 0.2px 0.2px 0 #000000,-0.2px 0.2px 0 #000000,0.2px -0.2px 0 #000000,-0.2px -0.2px 0 #000000;
 }
 
-.sentence{
+.sentence {
   color: rgb(255,255,255);
   font-weight: bold;
   font-size: 25px;
 }
 
-.ligu_logo{
+.ligu_logo {
   width: 25%;
   height: auto; 
 }
@@ -506,40 +506,40 @@ ul.logo {
   list-style: none;
 }
 
-.color{
+.color {
   color:white;
   text-shadow: 0.2px 0.2px 0 #000000,-0.2px 0.2px 0 #000000,0.2px -0.2px 0 #000000,-0.2px -0.2px 0 #000000;
 }
 
-.color2{
+.color2 {
   color:black;
   padding-bottom:3px;
   padding-top:3px;
 }
 
-.color2position{
+.color2position {
   padding-left:10px;
 }
 
-.linkcolor{
+.linkcolor {
   color:#FFFF00;
 &:hover {
     color: #FFD700;
   }
 }
 
-#linkcolor{
+#linkcolor {
   color:#FFFF00;
   &:hover {
     color: #FFD700;
     }
 }
 
-.ulbackcolor{
+.ulbackcolor {
   background: rgba(255,255,255,0.7);
 }
 
-.ulerrorbackcolor{
+.ulerrorbackcolor {
   background: #FFE4E1;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
@@ -547,11 +547,11 @@ ul.logo {
   border-bottom-left-radius: 4px;
 }
 
-.lierror{
+.lierror {
   margin-left:30px;
 }
 
-.unfollowbtn{
+.unfollowbtn {
   color:white;
   background: rgba(0,0,64,0.5);
   border: 1px solid #008BBB; 
@@ -563,14 +563,14 @@ ul.logo {
   }
 }
 
-.likebtn{
+.likebtn {
   background-color: rgba(255,255,255,0);
   border-style: none;
-  &:hover{
+  &:hover {
     background-color: rgba(255,255,255,0);
     border-style: none;
   }
-  &:active{
+  &:active {
     background-color: rgba(255,255,255,0);
     border-style: none;
   }
@@ -860,7 +860,7 @@ $contentFadeAT: 0.2s;
   }
 }
 
-.btntextsize{
+.btntextsize {
     font-size: 18px;
 }
 
@@ -1055,12 +1055,12 @@ $contentFadeAT: 0.2s;
   }
 } 
 
-.fa_text{
+.fa_text {
   font-size:30px;
   color:black;
 }
 
-.momtitle{
+.momtitle {
   font-size:20px;
   color:white;
 }
@@ -1080,7 +1080,7 @@ $contentFadeAT: 0.2s;
   color:#FFD700;
 }
 
-.animeleft{
+.animeleft {
   text-align: left;
 }
 
@@ -1165,36 +1165,36 @@ h1.updateanime {
   line-height: 1.5em;
 }
 
-.slidetextposition{
+.slidetextposition {
   height:500px;
   transform: rotateY(0deg) translateZ(250px);
 }
 
-.divuserinfo{
+.divuserinfo {
   padding-top:10%;
 }
 
-.divuserinfo2{
+.divuserinfo2 {
   padding-top:5%;
 }
 
-.divuserinfoname{
+.divuserinfoname {
  padding-top:10%;
  margin-left:30%;
 }
 
-.divshareduserinfo{
+.divshareduserinfo {
   padding-top:3%;
 }
 
-.talksposition{
+.talksposition {
  padding-right:5%;
 }
 
-.serchposition{
+.serchposition {
  padding-bottom:5%;
 }
 
-.imgposition{
+.imgposition {
  padding-bottom:1%;
 }

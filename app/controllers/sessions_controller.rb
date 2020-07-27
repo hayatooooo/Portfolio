@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       if user.activated?
         log_in user
-        params[:session][:remember_me] == '1' ? remember(user) : forget(user)
+        params[:session][:remember_me] == "1" ? remember(user) : forget(user)
         redirect_to root_url
       else
         message  = "アカウントが有効化されていません。 "
@@ -17,8 +17,8 @@ class SessionsController < ApplicationController
         redirect_to root_url
       end
     else
-      flash.now[:danger] = 'メールアドレス/パスワードの組み合わせが無効です。'
-      render 'new'
+      flash.now[:danger] = "メールアドレス/パスワードの組み合わせが無効です。"
+      render "new"
     end
   end
 

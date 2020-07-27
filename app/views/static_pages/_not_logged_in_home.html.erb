@@ -1,48 +1,44 @@
 <!--「次へ」「前へ」ボタン  -->
 <div class="swiper-button-prev"></div>
 <div class="swiper-button-next"></div>
-
-<body class="main">
-  <div class = "slidetextposition">
-    <h1 class="top">World </br>
-        Soccer </br>
-        community</h1>	
-    </br></br>
-    <!-- スライダーのメインコンテナ -->
-    <div class="center swiper-container">
-      <!-- ラッパー -->
-      <div class="swiper-wrapper">
-          <!-- 各スライド -->
-          <div class="swiper-slide"></div>
-          <div class="swiper-slide"><img src="/riva2.png"></div>
-          <div class="swiper-slide"><img src="/bru2.png"></div>
-          <div class="swiper-slide"><img src="/dru2.png"></div>
-      </div>
-      <!-- スライドショー -->
-      <%= javascript_include_tag('swiper.min.js') %>
+<div class="slidetextposition">
+  <h1 class="top">World</br>
+      Soccer</br>
+      community</h1>	
+  </br></br>
+  <!-- スライダーのメインコンテナ -->
+  <div class="center swiper-container">
+    <!-- ラッパー -->
+    <div class="swiper-wrapper">
+        <!-- 各スライド -->
+        <div class="swiper-slide"></div>
+        <div class="swiper-slide"><img src="/riva2.png"></div>
+        <div class="swiper-slide"><img src="/bru2.png"></div>
+        <div class="swiper-slide"><img src="/dru2.png"></div>
     </div>
+    <!-- スライドショー -->
+    <%= javascript_include_tag("swiper.min.js") %>
   </div>
-
-  <div class="center">
-    <%= link_to "Create my account!", signup_path, class: "btn btn-lg btn-primary btntextsize" %>
-    </br></br>
-    <div class="popups-cont">
-      <div class="popup">
-        <div class="popup_pieces"></div>
-        <div class="popup_content">
-          <div class="popup_close"></div>
-          <h3 class="aboutbtn">About</h3>
-          <p class="popup_text"></br>サッカー専門のチャットサイトです。</br></br>
-            　サッカーを愛してやまないサポーターの諸君。</br></br>
-              雑音を気にせず世界中の気の合う仲間と</br></br>
-              語り合いませんか？</br></br>
-              試合をリアルタイムで語るもよし!!</br></br>
-              お気に入りのチームについて語るもよし!!</p></br>
-        </div>
+</div>
+<div class="center">
+  <%= link_to "Create my account!", signup_path, class: "btn btn-lg btn-primary btntextsize" %>
+  </br></br>
+  <div class="popups-cont">
+    <div class="popup">
+      <div class="popup_pieces"></div>
+      <div class="popup_content">
+        <div class="popup_close"></div>
+        <h3 class="aboutbtn">About</h3>
+        <p class="popup_text"></br>サッカー専門のチャットサイトです。</br></br>
+          　サッカーを愛してやまないサポーターの諸君。</br></br>
+            雑音を気にせず世界中の気の合う仲間と</br></br>
+            語り合いませんか？</br></br>
+            試合をリアルタイムで語るもよし!!</br></br>
+            お気に入りのチームについて語るもよし!!</p></br>
       </div>
     </div>
-    <!-- ポップアップ -->
-    <%= javascript_include_tag('pupup.js') %>
-    <button type="button" class="popup-btn">About</button>
   </div>
-</body>
+  <!-- ポップアップ -->
+  <%= javascript_include_tag("pupup.js") %>
+  <button type="button" class="popup-btn">About</button>
+</div>

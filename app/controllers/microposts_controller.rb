@@ -1,6 +1,6 @@
 class MicropostsController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy]
-  before_action :correct_user,   only: :destroy
+  before_action :correct_user, only: :destroy
   
   def create
     #モデルを関連付けしたときにnewではなくbuild
@@ -11,7 +11,7 @@ class MicropostsController < ApplicationController
     else
       @q = Micropost.none.ransack
       @feed_items = current_user.feed.paginate(page: params[:page], :per_page => 5)
-      render 'static_pages/home'
+      render "static_pages/home"
     end
   end
 

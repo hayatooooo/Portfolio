@@ -8,9 +8,9 @@ class User < ApplicationRecord
                                    dependent:   :destroy
   has_many :following, through: :active_relationships,  source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
-  has_many    :memberships, dependent: :destroy
-  has_many    :talks, class_name: "Talk", through: :memberships
-  has_many    :dmessages, dependent: :destroy
+  has_many :memberships, dependent: :destroy
+  has_many :talks, class_name: "Talk", through: :memberships
+  has_many :dmessages, dependent: :destroy
   has_many :likes, dependent: :destroy
   belongs_to :category, optional: true
   belongs_to :sub_category, optional: true
@@ -67,7 +67,7 @@ class User < ApplicationRecord
   
   # アカウントを有効にする
   def activate
-    update_attribute(:activated,    true)
+    update_attribute(:activated, true)
     update_attribute(:activated_at, Time.zone.now)
   end
 
@@ -79,7 +79,7 @@ class User < ApplicationRecord
   # パスワード再設定の属性を設定する
   def create_reset_digest
     self.reset_token = User.new_token
-    update_attribute(:reset_digest,  User.digest(reset_token))
+    update_attribute(:reset_digest, User.digest(reset_token))
     update_attribute(:reset_sent_at, Time.zone.now)
   end
 

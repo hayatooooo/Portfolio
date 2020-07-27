@@ -1,12 +1,14 @@
 <% if object.errors.any? %>
   <div id="error_explanation">
     <div class="alert alert-danger">
-       <%= t('.errors count', errors_count: object.errors.count) %>
+       <!--エラーをカウント-->
+       <%= t(".errors count", errors_count: object.errors.count) %>
     </div>
+    <!--エラーメッセージを箇条書きで表示-->
     <ul class="ulerrorbackcolor">
-    <% object.errors.full_messages.each do |message| %>
-      <li class="lierror"><%= message %></li>
-    <% end %>
+      <% object.errors.full_messages.each do |message| %>
+        <li class="lierror"><%= message %></li>
+      <% end %>
     </ul>
   </div>
 <% end %>

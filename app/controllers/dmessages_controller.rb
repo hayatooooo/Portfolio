@@ -1,6 +1,6 @@
 class DmessagesController < ApplicationController
   before_action :logged_in_user
-  before_action :correct_user,   only: :destroy
+  before_action :correct_user, only: :destroy
   
   def destroy
     @talk = @dmessage.talk

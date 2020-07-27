@@ -1,15 +1,16 @@
-<body class="main">
-   <div class="row">
-
-      <aside class="col-md-4"></br>
+<div class="row">
+   <aside class="col-md-4"></br>
+      <!--ユーザー情報-->
       <section class="user_info">
-         <%= render 'shared/user_info' %>
+         <%= render "shared/user_info" %>
       </section>
+      <!--フォロー、フォロワー情報-->
       <section class="stats">
-         <%= render 'shared/stats' %>
+         <%= render "shared/stats" %>
       </section>
+      <!--投稿フォーム-->
       <section class="micropost_form">
-         <%= render 'shared/micropost_form' %>
+         <%= render "shared/micropost_form" %>
       </section>
       <div class="options">
          <div class="option active" style="--optionBackground:url(/sar.png);">
@@ -63,18 +64,17 @@
       </div>
       <p class="momtitle">プレミアリーグ月間優秀選手賞</p>
       <!-- スライドショー(アコーディオン) -->
-      <%= javascript_include_tag('accordionsraid.js') %>
-      </aside>
-
-      <div class="col-md-8">
-        <ul class="nav nav-tabs">
-          <h1 class="subtitle">Tweet</h1>
-          <div class="search_form">
-            <%= render 'shared/microposts_search_form' %>
-          </div>
-        </ul>
-        <%= render 'shared/feed' %>
-      </div>
-
+      <%= javascript_include_tag("accordionsraid.js") %>
+   </aside>
+   <div class="col-md-8">
+     <ul class="nav nav-tabs">
+       <h1 class="subtitle">Tweet</h1>
+       <div class="search_form">
+         <!--検索-->
+         <%= render "shared/microposts_search_form" %>
+       </div>
+     </ul>
+      <!--投稿一覧-->
+     <%= render "shared/feed" %>
    </div>
-</body>
+</div>

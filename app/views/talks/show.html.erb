@@ -1,24 +1,23 @@
 <% title = @talk.title(current_user) %>
 <% provide(:title, title) %>
-<body class="main">
-  <h1 class="subtitle"><%= title %></h1>
-  <div class="row" >
-    <div class="col-md-2">
-      <h1 class="talkanime">Talk Room</h1>
-      <%= javascript_include_tag('anime3.js') %>
-    </div>
-    <div class="col-md-8">
-      <ul class="dmessages ulbackcolor">
-        <%= render @dmessages %>
-      </ul>
-      <%= form_for @dmessage, url: dmessages_talk_path(@talk),
-                            html: { class: 'dmessage-form'} do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
+<h1 class="subtitle"><%= title %></h1>
+<div class="row" >
+  <div class="col-md-2">
+    <h1 class="talkanime">Talk Room</h1>
+    <!--アニメーション-->
+    <%= javascript_include_tag("anime3.js") %>
+  </div>
+  <div class="col-md-8">
+    <ul class="dmessages ulbackcolor">
+      <%= render @dmessages %>
+    </ul>
+    <%= form_for @dmessage, url: dmessages_talk_path(@talk),
+                          html: { class: "dmessage-form"} do |f| %>
+      <%= render "shared/error_messages", object: f.object %>
       <div class="field">
         <%= f.text_area :content, class: "content" %>
       </div>
       <%= f.submit "Send", class: "btn btn-primary btntextsize" %>
-      <% end %>
-    </div>
+    <% end %>
   </div>
-</body>
+</div>

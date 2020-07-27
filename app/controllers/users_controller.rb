@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy,
                                           :following, :followers]
-  before_action :correct_user,   only: [:edit, :update]
-  before_action :admin_user,     only: :destroy
+  before_action :correct_user, only: [:edit, :update]
+  before_action :admin_user, only: :destroy
       
   def index
     if params[:q] && params[:q].reject { |key, value| value.blank? }.present?
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
       flash[:info] = "メールを確認して、アカウントを有効にしてください。"
       redirect_to root_url
     else
-      render 'new'
+      render "new"
     end
   end
   
@@ -47,7 +47,7 @@ class UsersController < ApplicationController
       flash[:success] = "アカウント情報を更新しました。"
       redirect_to @user
     else
-      render 'edit'
+      render "edit"
     end
   end
   
@@ -61,14 +61,14 @@ class UsersController < ApplicationController
     @title = "Follows"
     @user  = User.find(params[:id])
     @users = @user.following.paginate(page: params[:page], :per_page => 5)
-    render 'show_follow'
+    render "show_follow"
   end
 
   def followers
     @title = "Followers"
     @user  = User.find(params[:id])
     @users = @user.followers.paginate(page: params[:page], :per_page => 5)
-    render 'show_follow'
+    render "show_follow"
   end
 
   private

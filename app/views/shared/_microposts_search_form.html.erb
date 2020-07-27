@@ -1,12 +1,12 @@
 <div class="serchposition">
   <%= search_form_for @q, url: @url do |f| %>
-  <%= f.label :content_cont, '  Tweet検索' ,class: 'color'%>
-    <div class="input-group">
-      <%= f.text_field :content_cont, placeholder: "キーワードを入れてください。",
-                        class: 'form-control' %>
-      <span class="input-group-btn">
-       <%= f.submit 'Go', class: "btn btn-primary btntextsize" %>
-      </span>
-    </div>
+    <%= f.label :content_cont, "  Tweet検索" ,class: "color" %>
+      <div class="input-group">
+        <%= f.text_field :content_cont, placeholder: "キーワードを入れてください。",
+                          class: "form-control" %>
+        <span class="input-group-btn">
+         <%= f.submit "Go", class: "btn btn-primary btntextsize" %>
+        </span>
+      </div>
   <% end %>
 </div>
